@@ -6,6 +6,12 @@
 
 int main()
 {
+	printf("today is a sunny day");
+	printf("today is a sunny day");
+	printf("today is a sunny day");
+	printf("today is a sunny day");
+	printf("today is a sunny day");
     return 0;
+
 }
 
