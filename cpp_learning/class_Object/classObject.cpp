@@ -1,17 +1,12 @@
-// classObject.cpp: 定义控制台应用程序的入口点。
-//
-
 #include "stdafx.h"
-
 
 int main()
 {
-	printf("today is a sunny day");
-	printf("today is a sunny day");
-	printf("today is a sunny day");
-	printf("today is a sunny day");
-	printf("today is a sunny day");
+	printf("today is 1111sunny day.\r\n");
+	printf("today is a sunny day.\r\n");
+	printf("today is a sunny day.\r\n");
+	printf("today is a sunny day.\r\n");
+	printf("today is a sunny day.\r\n");
     return 0;
-
 }
 
