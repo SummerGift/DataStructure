@@ -1,12 +1,22 @@
 #include "stdafx.h"
+#include "Operator.h"
 
 int main()
 {
-	printf("today is 1111sunny day.\r\n");
-	printf("today is a sunny day.\r\n");
-	printf("today is a sunny day.\r\n");
-	printf("today is a sunny day.\r\n");
-	printf("today is a sunny day.\r\n");
-    return 0;
-}
+	Operator op;
+	double r = 0;
 
+	op.setOperator('+');
+	op.setParameter(9, 3);
+
+	if (op.result(r))
+	{
+		printf("r = %lf\n", r);
+	}
+	else
+	{
+		printf("Calculate error!\n");
+	}
+
+	return 0;
+}
