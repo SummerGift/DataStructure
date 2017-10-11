@@ -1,22 +1,43 @@
 #include "stdafx.h"
 #include "Operator.h"
 
+namespace first_space{
+
+void swap(int *a, int *b)
+{
+	int t = *a;
+	*a = *b;
+	*b = t;
+}
+}
+
+namespace second_space {
+
+	void swap(int& a, int& b)
+	{
+		int t = a;
+		a = b;
+		b = t;
+	}
+}
+
 int main()
 {
-	Operator op;
-	double r = 0;
+	int a = 1;
+	int b = 2;
+	//first_space::swap(&a, &b);
+	//printf("a = %d,b =%d.\n",a,b);
+	//second_space::swap(a, b);
+	//printf("a = %d,b =%d.\n", a, b);
 
-	op.setOperator('+');
-	op.setParameter(9, 3);
+	const int& c = a;
+	int *p = (int *)&c;
+	*p = 5;
+	printf("c = %d.",c);
 
-	if (op.result(r))
-	{
-		printf("r = %lf\n", r);
-	}
-	else
-	{
-		printf("Calculate error!\n");
-	}
+	const int& d = 1;
+	printf("d = %d.", d);
+
 
 	return 0;
 }
