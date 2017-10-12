@@ -1,17 +1,43 @@
-// classObject.cpp: 定义控制台应用程序的入口点。
-//
-
 #include "stdafx.h"
+#include "Operator.h"
 
+namespace first_space{
+
+void swap(int *a, int *b)
+{
+	int t = *a;
+	*a = *b;
+	*b = t;
+}
+}
+
+namespace second_space {
+
+	void swap(int& a, int& b)
+	{
+		int t = a;
+		a = b;
+		b = t;
+	}
+}
 
 int main()
 {
-	printf("today is a sunny day");
-	printf("today is a sunny day");
-	printf("today is a sunny day");
-	printf("today is a sunny day");
-	printf("today is a sunny day");
-    return 0;
+	int a = 1;
+	int b = 2;
+	//first_space::swap(&a, &b);
+	//printf("a = %d,b =%d.\n",a,b);
+	//second_space::swap(a, b);
+	//printf("a = %d,b =%d.\n", a, b);
 
+	const int& c = a;
+	int *p = (int *)&c;
+	*p = 5;
+	printf("c = %d.",c);
+
+	const int& d = 1;
+	printf("d = %d.", d);
+
+
+	return 0;
 }
-
