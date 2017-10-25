@@ -1,35 +1,41 @@
 #include "stdafx.h"
 
-class value
+class Test
 {
 private:
 	int mi;
-
 public:
-	value(int i)
+	Test()
 	{
-		printf("i = %d\n", i);
-		mi = i;	
+		printf("create test.");
+
+	}
+	Test(int i)
+	{
+		mi = i;
+		printf("create test.value = %d.",i);
+
 	}
 
-	int getmi()
+	~Test()
 	{
-		return mi;
+		printf("test gone.");
+	
 	}
 
-	~value()
+	void print()
 	{
-		printf("program is over.\n");
+		printf("the value is %d.",mi);
+	
 	}
+
 
 };
 
 int main()
 {
-	value a(5);
+	Test(1).print();
 
-	printf("the value a = %d.",a.getmi());
+	return 0;
 
-    return 0;
 }
-
