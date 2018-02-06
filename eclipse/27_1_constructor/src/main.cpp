@@ -2,23 +2,23 @@
 #include "IntArray.h"
 
 int main() {
-    IntArray* a = IntArray::NewInstance(5);
+	IntArray* a = IntArray::NewInstance(5);
 
-    printf("a.length = %d\n", a->length());
+	printf("a.length = %d\n", a->length());
 
-    a->set(0, 1);
-    a->set(1, 1);
-    a->set(2, 1);
+	a->set(0, 1);
+	a->set(1, 1);
+	a->set(2, 1);
 
-    for (int i = 0; i < a->length(); i++) {
-        int v = 0;
+	for (int i = 0; i < a->length(); i++) {
+		int v = 0;
 
-        a->get(i, v);
+		a->get(i, v);
 
-        printf("a[%d] = %d\n", i, v);
-    }
+		printf("a[%d] = %d\n", i, v);
+	}
 
-    delete a;
+	delete a;
 
-    return 0;
+	return 0;
 }

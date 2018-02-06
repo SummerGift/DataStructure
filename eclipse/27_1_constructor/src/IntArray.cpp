@@ -11,10 +11,10 @@ IntArray::IntArray(int len) {
     m_length = len;
 }
 
-bool IntArray::construct() {
+bool IntArray::construct() {   //第二阶段构造
     bool ret = true;
 
-    m_pointer = new int[m_length];
+    m_pointer = new int[m_length]; //在第二阶段构造中申请系统资源
 
     if (m_pointer) {
         for (int i = 0; i < m_length; i++) {
@@ -30,8 +30,8 @@ bool IntArray::construct() {
 IntArray* IntArray::NewInstance(int length) {
     IntArray* ret = new IntArray(length);
 
-    if (!(ret && ret->construct())) {
-        delete ret;
+    if (!(ret && ret->construct())) {    //在静态成员函数中调用二阶构造函数
+        delete ret;              //如果申请系统资源失败那么构造就失败了，要删除之前创建的对象
         ret = 0;
     }
 
