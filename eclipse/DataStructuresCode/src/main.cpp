@@ -15,9 +15,18 @@ int main() {
     int i = 0;
     start = clock();
 
-    for (i = 0; i < maxk; i++) {
-        result = MaxSubsequenceSum(subarray, 10);
+
+    int arraycount;
+    scanf("%d",&arraycount);
+    printf("%d\n", arraycount);
+
+    int array[arraycount] = {0};
+
+    for( i=0; i<arraycount; i++){
+    	scanf("%d", &array[i]);
     }
+
+    result = MaxSubsequenceSum(subarray, 10);
 
     printf("the program runing times is %d. \nthe max subsequence is %d \n", maxk, result);
     stop = clock();
