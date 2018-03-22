@@ -1,11 +1,17 @@
-#include <iostream>
-#include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include "list.h"
 
-using namespace std;
 
 int main() {
-	printf("hello summergift!\n");
-	printf("today is a sunnyday!!!\n");
+
+	List L = MakeEmpty();
+
+	Insert(L, 15, L+1);
+
+	if( IsEmpty(L) )
+		printf("The is list is empty.");
+
 	return 0;
 }
 
