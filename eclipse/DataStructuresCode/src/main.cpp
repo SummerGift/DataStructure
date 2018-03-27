@@ -1,17 +1,32 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "list.h"
+#include <iostream>
 
+using namespace std;
+
+template <typename T>
+void Swap(T &a,T &b)
+{
+	T t = a;
+	a = b;
+	b = t;
+}
+
+template <typename T>
+class Operator
+{
+public:
+	T op(T a,T b)
+	{
+		return a*b;
+	}
+};
 
 int main() {
 
-	List L = MakeEmpty();
+	Operator<int> opint;
+	Operator<double> opdouble;
 
-	Insert(L, 15, L+1);
-
-	if( IsEmpty(L) )
-		printf("The is list is empty.");
-
+	cout << "4 * 5 = " << opint.op(4,5) << endl;
+	cout << "4.0 * 5.0 = " << opdouble.op(0.03, 0.05) << endl;
 	return 0;
 }
 
