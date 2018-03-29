@@ -20,13 +20,37 @@ public:
 	}
 };
 
+
+
+void demo1()
+{
+	throw 'c';
+}
+
+
 int main() {
 
-	Operator<int> opint;
-	Operator<double> opdouble;
+	cout << "main begin" << endl;
 
-	cout << "4 * 5 = " << opint.op(4,5) << endl;
-	cout << "4.0 * 5.0 = " << opdouble.op(0.03, 0.05) << endl;
+	try
+	{
+		demo1();
+	}
+	catch(int i)
+	{
+		cout << "catch(int i)" << endl;
+	}
+	catch(char i)
+	{
+		cout << "catch(char i)" << endl;
+	}
+	catch(...)
+	{
+		cout << "catch(...)" << endl;
+	}
+
+	cout << "main end" << endl;
+
 	return 0;
 }
 
