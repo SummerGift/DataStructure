@@ -33,8 +33,6 @@ DataList DataNode_read() {
 	scanf("%d %d %d", &first_addr, &data_num, &k);
 	datanumber = data_num;
 
-	printf("the args are : %d %d %d \n",first_addr, data_num, k);
-
 	P = (DataList) malloc(sizeof(struct DataNode));
 	P->link = NULL;
 	Rear = P;
@@ -81,7 +79,48 @@ DataList DataNode_rearrangement(DataList List, int firstaddr, int data_num) {
     return P;
 }
 
-DataList DataListReversing(DataList List, int k) {
+DataList DataListReversing(DataList List, int data_num, int k) {
+	int z,remainder;
+	z = data_num / k;
+	remainder = data_num % k;
+	printf("z = %d,remainder = %d \n", z, remainder);
+
+	//如果刚好余数为0，那么要每次截取  K 个来反转，截取 z 次
+    DataList P, Rear, t;
+    P = (DataList) malloc(sizeof(struct DataNode));
+    P->link = NULL;
+    Rear = P;
+    DataList List_t = List;
+    int i = 1;
+    int times, times_inter;
+
+	while(i <= z)
+	{
+		times = i * k;
+		times_inter = times;
+		while(k--)
+		{
+			while(--times_inter)
+			{
+				List_t = List_t->link;
+			}
+
+			Rear->link = List_t;   //将元素挂在链表 P上
+			Rear = List_t;
+
+			List_t = List;
+			times_inter = --times;
+		}
+       i++;
+	}
+
+	Rear->link = NULL;
+
+    t = P;
+    P = P->link;
+    free(t);
+
+	return P;
 }
 
 void DataListprint(DataList List) {
@@ -92,16 +131,16 @@ void DataListprint(DataList List) {
 }
 
 int main() {
-	DataList p, p_rearrangement;
+	DataList p, p_rearrangement, p_output;
 	//1、读入链表
 	p = DataNode_read();
-	DataListprint(p);
+	//DataListprint(p);
 	p_rearrangement = DataNode_rearrangement(p, first_addr, data_num);
 	DataListprint(p_rearrangement);
 
 	//2、反转链表
-	//DataListReversing(DataList List);
+	p_output = DataListReversing(p_rearrangement, data_num, k);
 	//3、输出链表
-	//DataListprint(DataList List);
+	DataListprint(p_output);
 	return 0;
 }
