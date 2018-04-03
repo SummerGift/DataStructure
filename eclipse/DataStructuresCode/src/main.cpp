@@ -55,31 +55,30 @@ DataList DataNode_read() {
 //然后根据下一个地址查找后插入
 
 DataList DataNode_rearrangement(DataList List, int firstaddr, int data_num) {
-	DataList P, Rear, t;
-	P = (DataList) malloc(sizeof(struct DataNode));
-	P->link = NULL;
-	Rear = P;
+    DataList P, Rear, t;
+    P = (DataList) malloc(sizeof(struct DataNode));
+    P->link = NULL;
+    Rear = P;
+    DataList List_t = List;
 
-	DataList List_t = List;
+    while (data_num--) {
+        while (List_t) {
+            if (List_t->addr == firstaddr) {
+                Attach(List_t->addr, List_t->data, List_t->nextaddr, &Rear);
+                firstaddr = List_t->nextaddr;
+                break;
+            } else {
+                List_t = List_t->link;
+            }
+        }
+        List_t = List;
+    }
 
-	printf("the data_num are : %d  \n",data_num);
+    t = P;
+    P = P->link;
+    free(t);
 
-	while (data_num--) {
-		while (List_t) {
-			if (List_t->addr == firstaddr) {
-				Attach(List_t->addr, List_t->data, List_t->nextaddr, &Rear);
-				firstaddr = List_t->nextaddr;
-				break;
-			}
-			List_t = List_t->link;
-		}
-	}
-
-	t = P;
-	P = P->link;
-	free(t);
-
-	return P;
+    return P;
 }
 
 DataList DataListReversing(DataList List, int k) {
