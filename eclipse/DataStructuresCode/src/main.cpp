@@ -71,6 +71,8 @@ DataList DataNode_rearrangement(DataList List, int firstaddr, int data_num) {
         }
         List_t = List;
     }
+	
+	// todo 在 attach 函数中结尾已经指向 NULL了,这里应该无需再次处理链表结尾
 
     t = P;
     P = P->link;
@@ -92,7 +94,9 @@ DataList DataListReversing(DataList List, int data_num, int k) {
     Rear = P;
     DataList List_t = List;
     int i = 1;
-    int times, times_inter;
+    int times, times_inter, times_out;
+    DataList list_last_time = NULL;
+    times_out = z * k;
 
 	while(i <= z)
 	{
@@ -108,13 +112,29 @@ DataList DataListReversing(DataList List, int data_num, int k) {
 			Rear->link = List_t;   //将元素挂在链表 P上
 			Rear = List_t;
 
-			List_t = List;
+			if( list_last_time != NULL)
+			{
+			    list_last_time->nextaddr = List_t->addr;
+			}
+
+            list_last_time = List_t;        //更新上一个节点的指针
+			List_t = List;                  //对List_t重新赋值
 			times_inter = --times;
 		}
        i++;
 	}
 
 	Rear->link = NULL;
+
+//	List_t = List;
+//
+//    while(--times_out)
+//    {
+//        List_t = List_t->link;
+//    }
+//
+//    Rear->link = List_t;   //将元素挂在链表 P上
+//    Rear = List_t;
 
     t = P;
     P = P->link;
