@@ -88,6 +88,10 @@ DataList DataListReversing(DataList List, int data_num, int k) {
 	//printf("z = %d,remainder = %d \n", z, remainder);
 
 	//如果刚好余数为0，那么要每次截取  K 个来反转，截取 z 次
+
+	if(k == 1)
+		return List;
+
 	DataList P, Rear, t;
 	P = (DataList) malloc(sizeof(struct DataNode));
 	P->link = NULL;
@@ -96,41 +100,85 @@ DataList DataListReversing(DataList List, int data_num, int k) {
 	int i = 1;
 	int times, times_inter, times_out;
 	DataList list_last_time = NULL;
-	times_out = z * k;
 	DataList save_addr = NULL;
+	DataList last_addr = NULL;
 	int flag = 1;
 
+//	printf("LINE:%d, the z = %d. \n", __LINE__, z);
+
 	while (i <= z) {
-		times = i * k;
-		times_inter = times;
-		while (k--) {
+		times = k;
+		times_inter = k;
+		times_out = k;
+
+//		printf("LINE:%d, the i = %d. \n", __LINE__, i);
+
+		while (times_out--) {
+
+//			printf("LINE:%d, the times_inter = %d. \n", __LINE__, times_inter);
 			while (--times_inter) {
 				List_t = List_t->link;
 			}
+                                                             //问题的关键是
+			if ((times_out + 1) == k) {                      //指针移动到这一组的最后一个元素时，将下一个元素的指针先存起来
 
-			if (flag) {
+//				printf("LINE:%d, the save_addr = %p. \n", __LINE__, save_addr);
 				save_addr = List_t->link;
 				flag = 0;
 			}
 
-			Rear->link = List_t;   //将元素挂在链表 P上
-			Rear = List_t;
+//			printf("LINE:%d, want to add list data = %d. \n", __LINE__, List_t->data);
 
+
+			Rear->link = List_t;             //将需要加入的元素加入到链表中
+			Rear = List_t;                   //更新尾节点指针
+
+//			printf("LINE:%d, the times_out = %d. \n", __LINE__, times_out);
+//			printf("LINE:%d, the List_t = %p. \n", __LINE__, List_t);
+//			printf("LINE:%d, the List_t data = %d. \n", __LINE__, List_t->data);
+//			printf("LINE:%d, 尾节点的指针指向的地址： %p. \n", __LINE__, Rear->link);
+
+
+			//处理节点内数据地址的重写
 			if (list_last_time != NULL) {
 				list_last_time->nextaddr = List_t->addr;
 			}
+			list_last_time = List_t;             //更新上一个节点的指针
 
-			list_last_time = List_t;        //更新上一个节点的指针
-			List_t = List;                  //对List_t重新赋值
-			times_inter = --times;
+            if( i == 1)
+            {
+				List_t = List;                       //对List_t重新赋值，重新开始向后遍历,这里有问题，为何又用数据开始时候的值，而不是上一次的saveaddr
+            }else{
+            	List_t = last_addr;                       //对List_t重新赋值，重新开始向后遍历,这里有问题，为何又用数据开始时候的值，而不是上一次的saveaddr
+            }
+
+			times_inter = --times;               //更新下一次所需要遍历的次数
 		}
-		i++;
+
+
 		flag = 1;
 		List_t = save_addr;
+		last_addr = save_addr;
+		i++;
+
+//		printf("LINE:%d, the save_addr = %p. \n", __LINE__, save_addr);
+//		printf("LINE:%d, the save_addr->data = %d. \n", __LINE__, save_addr->data);
+//		printf("LINE:%d, the save_addr->link->data = %d. \n", __LINE__, save_addr->link->data);
+
+		//return NULL;
 	}
 
 	if (!remainder) {
+
+
+//		printf("LINE:%d, the Rear = %p. \n", __LINE__, Rear);
+//		printf("LINE:%d, the Rear data = %d. \n", __LINE__, Rear->data);
+
 		Rear->link = NULL;
+		Rear->nextaddr = -1;
+
+//		printf("LINE:%d, the Rear->data = %d. \n", __LINE__, Rear->data);
+
 	} else {
 		Rear->link = save_addr;
 		Rear->nextaddr = save_addr->addr;
@@ -145,7 +193,11 @@ DataList DataListReversing(DataList List, int data_num, int k) {
 
 void DataListprint(DataList List) {
 	while (List) {
-		printf("%05d %d %d\n", List->addr, List->data, List->nextaddr);
+		if (List->nextaddr != -1) {
+			printf("%05d %d %05d\n", List->addr, List->data, List->nextaddr, List);
+		} else {
+			printf("%05d %d %d\n", List->addr, List->data, List->nextaddr, List);
+		}
 		List = List->link;
 	}
 }
@@ -154,13 +206,17 @@ int main() {
 	DataList p, p_rearrangement, p_output;
 	//1、读入链表
 	p = DataNode_read();
-	//DataListprint(p);
+//	printf("读入的链表如下： \n");
+//	DataListprint(p);
+	//2、重新排序
 	p_rearrangement = DataNode_rearrangement(p, first_addr, data_num);
-	//DataListprint(p_rearrangement);
-
-	//2、反转链表
+//	printf("重新排序后的链表如下： \n");
+//	DataListprint(p_rearrangement);
+	//3、反转链表
 	p_output = DataListReversing(p_rearrangement, data_num, k);
-	//3、输出链表
+	//4、输出链表
+//	printf("反转后的链表如下： p_output = %p \n", p_output);
 	DataListprint(p_output);
+
 	return 0;
 }
