@@ -85,56 +85,56 @@ DataList DataListReversing(DataList List, int data_num, int k) {
 	int z,remainder;
 	z = data_num / k;
 	remainder = data_num % k;
-	printf("z = %d,remainder = %d \n", z, remainder);
+	//printf("z = %d,remainder = %d \n", z, remainder);
 
 	//如果刚好余数为0，那么要每次截取  K 个来反转，截取 z 次
-    DataList P, Rear, t;
-    P = (DataList) malloc(sizeof(struct DataNode));
-    P->link = NULL;
-    Rear = P;
-    DataList List_t = List;
-    int i = 1;
-    int times, times_inter, times_out;
-    DataList list_last_time = NULL;
-    times_out = z * k;
+	DataList P, Rear, t;
+	P = (DataList) malloc(sizeof(struct DataNode));
+	P->link = NULL;
+	Rear = P;
+	DataList List_t = List;
+	int i = 1;
+	int times, times_inter, times_out;
+	DataList list_last_time = NULL;
+	times_out = z * k;
+	DataList save_addr = NULL;
+	int flag = 1;
 
-	while(i <= z)
-	{
+	while (i <= z) {
 		times = i * k;
 		times_inter = times;
-		while(k--)
-		{
-			while(--times_inter)
-			{
+		while (k--) {
+			while (--times_inter) {
 				List_t = List_t->link;
+			}
+
+			if (flag) {
+				save_addr = List_t->link;
+				flag = 0;
 			}
 
 			Rear->link = List_t;   //将元素挂在链表 P上
 			Rear = List_t;
 
-			if( list_last_time != NULL)
-			{
-			    list_last_time->nextaddr = List_t->addr;
+			if (list_last_time != NULL) {
+				list_last_time->nextaddr = List_t->addr;
 			}
 
-            list_last_time = List_t;        //更新上一个节点的指针
+			list_last_time = List_t;        //更新上一个节点的指针
 			List_t = List;                  //对List_t重新赋值
 			times_inter = --times;
 		}
-       i++;
+		i++;
+		flag = 1;
+		List_t = save_addr;
 	}
 
-	Rear->link = NULL;
-
-//	List_t = List;
-//
-//    while(--times_out)
-//    {
-//        List_t = List_t->link;
-//    }
-//
-//    Rear->link = List_t;   //将元素挂在链表 P上
-//    Rear = List_t;
+	if (!remainder) {
+		Rear->link = NULL;
+	} else {
+		Rear->link = save_addr;
+		Rear->nextaddr = save_addr->addr;
+	}
 
     t = P;
     P = P->link;
@@ -145,7 +145,7 @@ DataList DataListReversing(DataList List, int data_num, int k) {
 
 void DataListprint(DataList List) {
 	while (List) {
-		printf("%d %d %d\n", List->addr, List->data, List->nextaddr);
+		printf("%05d %d %d\n", List->addr, List->data, List->nextaddr);
 		List = List->link;
 	}
 }
@@ -156,7 +156,7 @@ int main() {
 	p = DataNode_read();
 	//DataListprint(p);
 	p_rearrangement = DataNode_rearrangement(p, first_addr, data_num);
-	DataListprint(p_rearrangement);
+	//DataListprint(p_rearrangement);
 
 	//2、反转链表
 	p_output = DataListReversing(p_rearrangement, data_num, k);
