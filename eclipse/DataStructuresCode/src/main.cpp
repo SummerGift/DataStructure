@@ -203,19 +203,30 @@ void DataListprint(DataList List) {
 }
 
 int main() {
-	DataList p, p_rearrangement, p_output;
+	DataList save, p, p_rearrangement, p_output;
+	int count = 0;
 	//1、读入链表
 	p = DataNode_read();
-//	printf("读入的链表如下： \n");
-//	DataListprint(p);
+	//printf("读入的链表如下： \n");
+	//DataListprint(p);
 	//2、重新排序
 	p_rearrangement = DataNode_rearrangement(p, first_addr, data_num);
-//	printf("重新排序后的链表如下： \n");
-//	DataListprint(p_rearrangement);
+	save = p_rearrangement;
+	//printf("重新排序后的链表如下： \n");
+	//DataListprint(p_rearrangement);
+
+	while(p_rearrangement)
+	{
+		count ++;
+		p_rearrangement = p_rearrangement->link;
+	}
+
+	//printf("反转后的链表如下： p_output = %p \n", p_output);
+
 	//3、反转链表
-	p_output = DataListReversing(p_rearrangement, data_num, k);
+	p_output = DataListReversing(save, count, k);
 	//4、输出链表
-//	printf("反转后的链表如下： p_output = %p \n", p_output);
+	//printf("反转后的链表如下： p_output = %p \n", p_output);
 	DataListprint(p_output);
 
 	return 0;
