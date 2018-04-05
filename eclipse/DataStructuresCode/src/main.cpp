@@ -81,13 +81,46 @@ DataList DataNode_rearrangement(DataList List, int firstaddr, int data_num) {
     return P;
 }
 
+
+//链表的反转
+DataList ListReversing(DataList List)
+{
+	DataList p = List, newH = NULL;
+	while (p != NULL)                 //一直迭代到链尾
+	{
+//		printf("LINE:%d, the List->data = %d. \n", __LINE__, p->data);
+//		printf("LINE:%d, the List->link = %p. \n", __LINE__, p->link);
+		//printf("LINE:%d, the List->link->data = %d. \n", __LINE__, List->link->data);
+		//printf("LINE:%d, the List->link->link = %p. \n", __LINE__, List->link->link);
+
+		if (p->link != NULL) {
+			p->link->nextaddr = p->addr;
+		}
+
+		DataList tmp = p->link;       //暂存p下一个地址，防止变化指针指向后找不到后续的数
+		p->link = newH;               //p->next指向前一个空间
+		newH = p;                     //新链表的头移动到p，扩长一步链表
+		p    = tmp;                   //p指向原始链表p指向的下一个空间
+	}
+
+
+//	printf("LINE:%d, the newH = %p. \n", __LINE__, newH);
+//	printf("LINE:%d, the newH->data = %d. \n", __LINE__, newH->data);
+//	printf("LINE:%d, the newH->link = %p. \n", __LINE__, newH->link);
+//	printf("LINE:%d, the newH->link->data = %d. \n", __LINE__, newH->link->data);
+//	printf("LINE:%d, the newH->link->link = %p. \n", __LINE__, newH->link->link);
+	return newH;
+}
+void DataListprint(DataList List);
+
 DataList DataListReversing(DataList List, int data_num, int k) {
 	int z,remainder;
+	int i = 1;
+	int flag = 1;
 	z = data_num / k;
 	remainder = data_num % k;
-	//printf("z = %d,remainder = %d \n", z, remainder);
 
-	//如果刚好余数为0，那么要每次截取  K 个来反转，截取 z 次
+//	printf("z = %d,remainder = %d \n", z, remainder);
 
 	if(k == 1)
 		return List;
@@ -96,92 +129,91 @@ DataList DataListReversing(DataList List, int data_num, int k) {
 	P = (DataList) malloc(sizeof(struct DataNode));
 	P->link = NULL;
 	Rear = P;
+
 	DataList List_t = List;
-	int i = 1;
-	int times, times_inter, times_out;
-	DataList list_last_time = NULL;
-	DataList save_addr = NULL;
-	DataList last_addr = NULL;
-	int flag = 1;
+	int times_inter, times_out;
+	DataList list_last_time = NULL, save_addr = NULL, next_addr = NULL;
 
-//	printf("LINE:%d, the z = %d. \n", __LINE__, z);
+	//printf("LINE:%d, the z = %d. \n", __LINE__, z);
 
-	while (i <= z) {
-		times = k;
+	//如果刚好余数为0，那么要每次截取  K 个来反转，截取 z 次
+	while (i <= z)
+	{
 		times_inter = k;
-		times_out = k;
 
-//		printf("LINE:%d, the i = %d. \n", __LINE__, i);
-
-		while (times_out--) {
-
-//			printf("LINE:%d, the times_inter = %d. \n", __LINE__, times_inter);
-			while (--times_inter) {
-				List_t = List_t->link;
-			}
-                                                             //问题的关键是
-			if ((times_out + 1) == k) {                      //指针移动到这一组的最后一个元素时，将下一个元素的指针先存起来
-
-//				printf("LINE:%d, the save_addr = %p. \n", __LINE__, save_addr);
-				save_addr = List_t->link;
-				flag = 0;
-			}
-
-//			printf("LINE:%d, want to add list data = %d. \n", __LINE__, List_t->data);
-
-
-			Rear->link = List_t;             //将需要加入的元素加入到链表中
-			Rear = List_t;                   //更新尾节点指针
-
-//			printf("LINE:%d, the times_out = %d. \n", __LINE__, times_out);
-//			printf("LINE:%d, the List_t = %p. \n", __LINE__, List_t);
-//			printf("LINE:%d, the List_t data = %d. \n", __LINE__, List_t->data);
-//			printf("LINE:%d, 尾节点的指针指向的地址： %p. \n", __LINE__, Rear->link);
-
-
-			//处理节点内数据地址的重写
-			if (list_last_time != NULL) {
-				list_last_time->nextaddr = List_t->addr;
-			}
-			list_last_time = List_t;             //更新上一个节点的指针
-
-            if( i == 1)
-            {
-				List_t = List;                       //对List_t重新赋值，重新开始向后遍历,这里有问题，为何又用数据开始时候的值，而不是上一次的saveaddr
-            }else{
-            	List_t = last_addr;                       //对List_t重新赋值，重新开始向后遍历,这里有问题，为何又用数据开始时候的值，而不是上一次的saveaddr
-            }
-
-			times_inter = --times;               //更新下一次所需要遍历的次数
+		while (--times_inter) {
+			List_t = List_t->link;
 		}
 
+//		printf("LINE:%d, the List_t->data = %d. \n", __LINE__, List_t->data);
+//		printf("LINE:%d, the List_t->link = %p. \n", __LINE__, List_t->link);
 
-		flag = 1;
-		List_t = save_addr;
-		last_addr = save_addr;
+		if(List_t->link != NULL)
+		{
+			next_addr = List_t->link;   //将下一个链表的第一个元素的地址存起来 这里可能等于 NULL
+		}
+
+		List_t->link = NULL;
+
+//		printf("LINE:%d, the List_t = %p. \n", __LINE__, List_t);
+//		printf("LINE:%d, the List_t->data = %d. \n", __LINE__, List_t->data);
+
+		if (i == 1) {
+			List_t = List;
+		} else {
+			List_t = next_addr;
+		}
+
+//		printf("LINE:%d, the List_t = %p. \n", __LINE__, List_t);
+//		printf("LINE:%d, the List_t->data = %d. \n", __LINE__, List_t->data);
+
+		//因为要反转链表 所以这时候放进去的 List_t 会是反转后的最后一个元素的指针
+
+        save_addr = List_t;         //这一轮没有反转前的最后一个元素的地址，用到最后表示链表的最后一个元素
+		list_last_time = ListReversing (List_t);
+
+
+//		printf("LINE:%d, the list_last_time = %d. \n", __LINE__, list_last_time->data);
+		Rear->link = list_last_time;                 //将新的反转好的链表加入到新链表中
+		Rear->nextaddr = list_last_time->addr;
+
+		Rear = save_addr;                            //Rear指针指向新链表最后一个元素
+
+//		printf("LINE:%d, the List_t->data = %d. \n", __LINE__, List_t->data);
+//		printf("LINE:%d, the Rear = %d. \n", __LINE__, Rear->data);              //第一次之后需要等于1
+//		printf("LINE:%d, the Rear->link = %p. \n", __LINE__, Rear->link);
+
+		List_t = next_addr;
+
+//		if(i == 2)
+//		{
+//			printf("%d SECOND TIME \n", __LINE__);
+//			return NULL;
+//		}
+
 		i++;
 
-//		printf("LINE:%d, the save_addr = %p. \n", __LINE__, save_addr);
-//		printf("LINE:%d, the save_addr->data = %d. \n", __LINE__, save_addr->data);
-//		printf("LINE:%d, the save_addr->link->data = %d. \n", __LINE__, save_addr->link->data);
+//		printf("LINE:%d, the List_t->data = %d. \n", __LINE__, List_t->data);
+//		printf("LINE:%d, the List_t->link = %p. \n", __LINE__, List_t->link);
+//		printf("LINE:%d, the List_t->data = %d. \n", __LINE__, List_t->link->data);
+//		printf("LINE:%d, the List_t->link = %p. \n", __LINE__, List_t->link->link);
 
-		//return NULL;
+
 	}
+
+//	printf("%d SECOND TIME \n", __LINE__);
+//
+//	return NULL;
 
 	if (!remainder) {
 
-
-//		printf("LINE:%d, the Rear = %p. \n", __LINE__, Rear);
-//		printf("LINE:%d, the Rear data = %d. \n", __LINE__, Rear->data);
-
-		Rear->link = NULL;
-		Rear->nextaddr = -1;
+		Rear->nextaddr = -1;   //这里需要反转后的最后一个元素
 
 //		printf("LINE:%d, the Rear->data = %d. \n", __LINE__, Rear->data);
 
 	} else {
-		Rear->link = save_addr;
-		Rear->nextaddr = save_addr->addr;
+		Rear->link = next_addr;
+		Rear->nextaddr = next_addr->addr;
 	}
 
     t = P;
@@ -207,13 +239,13 @@ int main() {
 	int count = 0;
 	//1、读入链表
 	p = DataNode_read();
-	//printf("读入的链表如下： \n");
-	//DataListprint(p);
+//	printf("读入的链表如下： \n");
+//	DataListprint(p);
 	//2、重新排序
 	p_rearrangement = DataNode_rearrangement(p, first_addr, data_num);
 	save = p_rearrangement;
-	//printf("重新排序后的链表如下： \n");
-	//DataListprint(p_rearrangement);
+//	printf("重新排序后的链表如下： \n");
+//	DataListprint(p_rearrangement);
 
 	while(p_rearrangement)
 	{
@@ -226,7 +258,7 @@ int main() {
 	//3、反转链表
 	p_output = DataListReversing(save, count, k);
 	//4、输出链表
-	//printf("反转后的链表如下： p_output = %p \n", p_output);
+//	printf("反转后的链表如下： p_output = %p \n", p_output);
 	DataListprint(p_output);
 
 	return 0;
