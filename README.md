@@ -1,17 +1,58 @@
-# 数据结构与算法分析
+# Readme
 
-- 介绍数据结构的相关概念以及常用数据结构的实现方法。
-- 记录 C/C++ 数据结构练习题。
-- 总结学习的内容并且提出自己的理解。
+## About this repo
 
-## 1. 算法的效率度量和算法复杂度
+- This repo consists of my notes of datastructures classes taught in University of ZHEJIANG on MOOC.
 
-## 2. 线性结构
-### 2.1 线性表的概念及实现
-### 2.2 栈的概念及实现
-### 2.3 队列的概念及实现
+- Most of the code that this branch contains will be written by C/C++.
 
-## 3. 树
-### 3.1 一般树的表示
-### 3.2 二叉树及其存储
-### 3.3 二叉树的遍历
+- Record C/C++ data structure exercises.
+
+- Summarize the learning content and put forward my own understanding.
+
+___
+
+## Content
+
+### Lecture Notes
+
+0. [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Compiled/Lecture-0.md)
+
+**Note :** The lectures above are only the lectures I have compiled so far. For a complete list of the Lectures I am working on, checkout the [roadmap](#roadmap).
+
+### Datastructures exercises
+
+Check out [Datastructures.md](./Datastructures.md) for a list of all Datastructures exercises implemented in the repository.
+
+## Note style
+
+### Code
+
+All code will be marked \`\`\`Language ...code... \`\`\` when the lecture is read in raw format. When viewed through Github and Pandoc, it will be color coded based on the language as such:
+
+* C
+    ```c
+    #include <stdio.h>
+    int main(void){
+        char * foo = "bar";
+        printf("%s",foo);
+        return 0;
+    }
+    ```
+  * All C code is Compiled with ```MinGW.org GCC-6.3.0-1```.
+
+### Roadmap
+
+- [x] Write Lectures 0 - 0:
+
+* [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Compiled/Lecture-0.md)
+
+__Write the following Lecture notes:__
+
+- [ ] Lecture 1 - 算法的效率度量和算法复杂度
+- [ ] Lecture 2- 线性表的概念及实现
+- [ ] Lecture 3 - 栈的概念及实现
+- [ ] Lecture 4 - 队列的概念及实现
+- [ ] Lecture 5 - 一般树的表示
+- [ ] Lecture 6 - 二叉树及其存储
+- [ ] Lecture 7 - 二叉树的遍历
