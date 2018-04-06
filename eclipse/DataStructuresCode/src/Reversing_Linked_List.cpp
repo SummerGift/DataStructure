@@ -1,9 +1,52 @@
 /*
  * Reversing_Linked_List.cpp
  *
- *  Created on: 2018Äê4ÔÂ6ÈÕ
+ *  Created on: 2018å¹´4æœˆ6æ—¥
  *      Author: Administrator
  */
+
+/*
+02-çº¿æ€§ç»“æ„3 Reversing Linked Listï¼ˆ25 åˆ†ï¼‰
+
+Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L.
+ For example, given L being 1â†’2â†’3â†’4â†’5â†’6, if K = 3, then you must output 3â†’2â†’1â†’6â†’5â†’4; if K = 4,
+ you must output 4â†’3â†’2â†’1â†’5â†’6.
+
+Input Specification:
+
+Each input file contains one test case. For each case, the first line contains the address of the first node,
+a positive N (<= 105) which is the total number of nodes,
+and a positive K (<=N) which is the length of the sublist to be reversed.
+The address of a node is a 5-digit nonnegative integer, and NULL is represented by -1.
+
+Then N lines follow, each describes a node in the format:
+
+Address Data Next
+
+where Address is the position of the node, Data is an integer, and Next is the position of the next node.
+
+Output Specification:
+
+For each case, output the resulting ordered linked list. Each node occupies a line,
+and is printed in the same format as in the input.
+
+Sample Input:
+00100 6 4
+00000 4 99999
+00100 1 12309
+68237 6 -1
+33218 3 00000
+99999 5 68237
+12309 2 33218
+Sample Output:
+00000 4 33218
+33218 3 12309
+12309 2 00100
+00100 1 99999
+99999 5 68237
+68237 6 -1
+ */
+
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -16,7 +59,7 @@ struct DataNode {
 };
 typedef struct DataNode *DataList;
 
-// ÏµÊı Ö¸Êı ĞèÒª½«½Úµã²åÈëÁ´±íµÄÎ²²¿Ö¸Õë
+// ç³»æ•° æŒ‡æ•° éœ€è¦å°†èŠ‚ç‚¹æ’å…¥é“¾è¡¨çš„å°¾éƒ¨æŒ‡é’ˆ
 static void Attach(int addr, int data, int nextaddr, DataList *pRear) {
     DataList P;
 
@@ -25,13 +68,13 @@ static void Attach(int addr, int data, int nextaddr, DataList *pRear) {
     P->data = data;
     P->nextaddr = nextaddr;
     P->link = NULL;
-    (*pRear)->link = P; //ÈÃÎ²½ÚµãµÄÖ¸ÕëÖ¸ÏòĞÂµÄ½Úµã
-    *pRear = P;         //¸üĞÂÎ²Ö¸ÕëÖ¸ÏòµÄÎ»ÖÃ
+    (*pRear)->link = P; //è®©å°¾èŠ‚ç‚¹çš„æŒ‡é’ˆæŒ‡å‘æ–°çš„èŠ‚ç‚¹
+    *pRear = P;         //æ›´æ–°å°¾æŒ‡é’ˆæŒ‡å‘çš„ä½ç½®
 }
 
 int first_addr, data_num, k;
 
-//1¡¢½«Êı¾İ¶ÁÈëÒ»¸öÁ´±íÄÚ
+//1ã€å°†æ•°æ®è¯»å…¥ä¸€ä¸ªé“¾è¡¨å†…
 DataList DataNode_read() {
 
     int addr, data, nextaddr , datanumber;
@@ -56,8 +99,8 @@ DataList DataNode_read() {
     return P;
 }
 
-//2¡¢¶ÔÁ´±í½øĞĞÖØĞÂÅÅĞò£¬²éÕÒÖ®Ç°Éú³ÉµÄÁ´±íÖĞµÚÒ»¸öµØÖ·µÄ½Úµã²åÈë
-//È»ºó¸ù¾İÏÂÒ»¸öµØÖ·²éÕÒºó²åÈë
+//2ã€å¯¹é“¾è¡¨è¿›è¡Œé‡æ–°æ’åºï¼ŒæŸ¥æ‰¾ä¹‹å‰ç”Ÿæˆçš„é“¾è¡¨ä¸­ç¬¬ä¸€ä¸ªåœ°å€çš„èŠ‚ç‚¹æ’å…¥
+//ç„¶åæ ¹æ®ä¸‹ä¸€ä¸ªåœ°å€æŸ¥æ‰¾åæ’å…¥
 
 DataList DataNode_rearrangement(DataList List, int firstaddr, int data_num) {
     DataList P, Rear, t;
@@ -86,19 +129,19 @@ DataList DataNode_rearrangement(DataList List, int firstaddr, int data_num) {
     return P;
 }
 
-//Á´±íµÄ·´×ª
+//é“¾è¡¨çš„åè½¬
 DataList ListReversing(DataList List) {
     DataList p = List, newH = NULL;
-    while (p != NULL)                 //Ò»Ö±µü´úµ½Á´Î²
+    while (p != NULL)                 //ä¸€ç›´è¿­ä»£åˆ°é“¾å°¾
     {
         if (p->link != NULL) {
             p->link->nextaddr = p->addr;
         }
 
-        DataList tmp = p->link;       //Ôİ´æpÏÂÒ»¸öµØÖ·£¬·ÀÖ¹±ä»¯Ö¸ÕëÖ¸ÏòºóÕÒ²»µ½ºóĞøµÄÊı
-        p->link = newH;               //p->nextÖ¸ÏòÇ°Ò»¸ö¿Õ¼ä
-        newH = p;                     //ĞÂÁ´±íµÄÍ·ÒÆ¶¯µ½p£¬À©³¤Ò»²½Á´±í
-        p = tmp;                   //pÖ¸ÏòÔ­Ê¼Á´±ípÖ¸ÏòµÄÏÂÒ»¸ö¿Õ¼ä
+        DataList tmp = p->link;       //æš‚å­˜pä¸‹ä¸€ä¸ªåœ°å€ï¼Œé˜²æ­¢å˜åŒ–æŒ‡é’ˆæŒ‡å‘åæ‰¾ä¸åˆ°åç»­çš„æ•°
+        p->link = newH;               //p->nextæŒ‡å‘å‰ä¸€ä¸ªç©ºé—´
+        newH = p;                     //æ–°é“¾è¡¨çš„å¤´ç§»åŠ¨åˆ°pï¼Œæ‰©é•¿ä¸€æ­¥é“¾è¡¨
+        p = tmp;                   //pæŒ‡å‘åŸå§‹é“¾è¡¨pæŒ‡å‘çš„ä¸‹ä¸€ä¸ªç©ºé—´
     }
 
     return newH;
@@ -125,7 +168,7 @@ DataList DataListReversing(DataList List, int data_num, int k) {
     int times_inter, times_out;
     DataList list_last_time = NULL, save_addr = NULL, next_addr = NULL;
 
-    //Èç¹û¸ÕºÃÓàÊıÎª0£¬ÄÇÃ´ÒªÃ¿´Î½ØÈ¡  K ¸öÀ´·´×ª£¬½ØÈ¡ z ´Î
+    //å¦‚æœåˆšå¥½ä½™æ•°ä¸º0ï¼Œé‚£ä¹ˆè¦æ¯æ¬¡æˆªå–  K ä¸ªæ¥åè½¬ï¼Œæˆªå– z æ¬¡
     while (i <= z) {
         times_inter = k;
 
@@ -134,7 +177,7 @@ DataList DataListReversing(DataList List, int data_num, int k) {
         }
 
         if (List_t->link != NULL) {
-            next_addr = List_t->link;   //½«ÏÂÒ»¸öÁ´±íµÄµÚÒ»¸öÔªËØµÄµØÖ·´æÆğÀ´ ÕâÀï¿ÉÄÜµÈÓÚ NULL
+            next_addr = List_t->link;   //å°†ä¸‹ä¸€ä¸ªé“¾è¡¨çš„ç¬¬ä¸€ä¸ªå…ƒç´ çš„åœ°å€å­˜èµ·æ¥ è¿™é‡Œå¯èƒ½ç­‰äº NULL
         }
 
         List_t->link = NULL;
@@ -145,14 +188,14 @@ DataList DataListReversing(DataList List, int data_num, int k) {
             List_t = next_addr;
         }
 
-        //ÒòÎªÒª·´×ªÁ´±í ËùÒÔÕâÊ±ºò·Å½øÈ¥µÄ List_t »áÊÇ·´×ªºóµÄ×îºóÒ»¸öÔªËØµÄÖ¸Õë
-        save_addr = List_t;         //ÕâÒ»ÂÖÃ»ÓĞ·´×ªÇ°µÄ×îºóÒ»¸öÔªËØµÄµØÖ·£¬ÓÃµ½×îºó±íÊ¾Á´±íµÄ×îºóÒ»¸öÔªËØ
+        //å› ä¸ºè¦åè½¬é“¾è¡¨ æ‰€ä»¥è¿™æ—¶å€™æ”¾è¿›å»çš„ List_t ä¼šæ˜¯åè½¬åçš„æœ€åä¸€ä¸ªå…ƒç´ çš„æŒ‡é’ˆ
+        save_addr = List_t;         //è¿™ä¸€è½®æ²¡æœ‰åè½¬å‰çš„æœ€åä¸€ä¸ªå…ƒç´ çš„åœ°å€ï¼Œç”¨åˆ°æœ€åè¡¨ç¤ºé“¾è¡¨çš„æœ€åä¸€ä¸ªå…ƒç´ 
         list_last_time = ListReversing(List_t);
 
-        Rear->link = list_last_time;                 //½«ĞÂµÄ·´×ªºÃµÄÁ´±í¼ÓÈëµ½ĞÂÁ´±íÖĞ
+        Rear->link = list_last_time;                 //å°†æ–°çš„åè½¬å¥½çš„é“¾è¡¨åŠ å…¥åˆ°æ–°é“¾è¡¨ä¸­
         Rear->nextaddr = list_last_time->addr;
 
-        Rear = save_addr;                            //RearÖ¸ÕëÖ¸ÏòĞÂÁ´±í×îºóÒ»¸öÔªËØ
+        Rear = save_addr;                            //RearæŒ‡é’ˆæŒ‡å‘æ–°é“¾è¡¨æœ€åä¸€ä¸ªå…ƒç´ 
 
         List_t = next_addr;                          //
 
@@ -160,7 +203,7 @@ DataList DataListReversing(DataList List, int data_num, int k) {
     }
 
     if (!remainder) {
-        Rear->nextaddr = -1;   //ÕâÀïĞèÒª·´×ªºóµÄ×îºóÒ»¸öÔªËØ
+        Rear->nextaddr = -1;   //è¿™é‡Œéœ€è¦åè½¬åçš„æœ€åä¸€ä¸ªå…ƒç´ 
     } else {
         Rear->link = next_addr;
         Rear->nextaddr = next_addr->addr;
@@ -187,14 +230,14 @@ void DataListprint(DataList List) {
 //int main() {
 //    DataList save, p, p_rearrangement, p_output;
 //    int count = 0;
-//    //1¡¢¶ÁÈëÁ´±í
+//    //1ã€è¯»å…¥é“¾è¡¨
 //    p = DataNode_read();
-////  printf("¶ÁÈëµÄÁ´±íÈçÏÂ£º \n");
+////  printf("è¯»å…¥çš„é“¾è¡¨å¦‚ä¸‹ï¼š \n");
 ////  DataListprint(p);
-//    //2¡¢ÖØĞÂÅÅĞò
+//    //2ã€é‡æ–°æ’åº
 //    p_rearrangement = DataNode_rearrangement(p, first_addr, data_num);
 //    save = p_rearrangement;
-////  printf("ÖØĞÂÅÅĞòºóµÄÁ´±íÈçÏÂ£º \n");
+////  printf("é‡æ–°æ’åºåçš„é“¾è¡¨å¦‚ä¸‹ï¼š \n");
 ////  DataListprint(p_rearrangement);
 //
 //    while (p_rearrangement) {
@@ -202,11 +245,11 @@ void DataListprint(DataList List) {
 //        p_rearrangement = p_rearrangement->link;
 //    }
 //
-//    //printf("·´×ªºóµÄÁ´±íÈçÏÂ£º p_output = %p \n", p_output);
-//    //3¡¢·´×ªÁ´±í
+//    //printf("åè½¬åçš„é“¾è¡¨å¦‚ä¸‹ï¼š p_output = %p \n", p_output);
+//    //3ã€åè½¬é“¾è¡¨
 //    p_output = DataListReversing(save, count, k);
-//    //4¡¢Êä³öÁ´±í
-////  printf("·´×ªºóµÄÁ´±íÈçÏÂ£º p_output = %p \n", p_output);
+//    //4ã€è¾“å‡ºé“¾è¡¨
+////  printf("åè½¬åçš„é“¾è¡¨å¦‚ä¸‹ï¼š p_output = %p \n", p_output);
 //    DataListprint(p_output);
 //
 //    return 0;
