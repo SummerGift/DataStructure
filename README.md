@@ -16,7 +16,8 @@ ___
 
 ### Lecture Notes
 
-0. [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Compiled/Lecture-0.md)
+0. [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Lecture-0.md)
+1. [Lecture 5 - 树与树的表示](./Lectures/Lecture-5.md)
 
 **Note :** The lectures above are only the lectures I have compiled so far. For a complete list of the Lectures I am working on, checkout the [roadmap](#roadmap).
 
@@ -45,7 +46,8 @@ All code will be marked \`\`\`Language ...code... \`\`\` when the lecture is rea
 
 - [x] Write Lectures 0 - 0:
 
-* [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Compiled/Lecture-0.md)
+* [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Lecture-0.md)
+* [Lecture 5 - 树与树的表示](./Lectures/Lecture-5.md)
 
 __Write the following Lecture notes:__
 
@@ -53,6 +55,6 @@ __Write the following Lecture notes:__
 - [ ] Lecture 2 - 线性表的概念及实现
 - [ ] Lecture 3 - 栈的概念及实现
 - [ ] Lecture 4 - 队列的概念及实现
-- [ ] Lecture 5 - 一般树的表示
+- [ ] Lecture 5 - 树与树的表示
 - [ ] Lecture 6 - 二叉树及其存储
 - [ ] Lecture 7 - 二叉树的遍历
