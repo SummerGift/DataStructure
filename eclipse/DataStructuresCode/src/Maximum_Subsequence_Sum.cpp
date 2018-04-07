@@ -32,26 +32,9 @@ Sample Output:
 
 #include <stdio.h>
 
-int MaxSubsequenceSum(const int A[], int n) {
-    int thissum, maxsum, i, j, k;
-
-    maxsum = 0;
-    for (i = 0; i < n; i++)
-        for (j = i; j < n; j++) {
-            thissum = 0;
-            for (k = i; k <= j; k++) {
-                thissum += A[k];
-            }
-
-            if (thissum > maxsum)
-                maxsum = thissum;
-        }
-
-    return maxsum;
-}
 
 
-int MaxSubseqSum4( int A[], int N )
+static int MaxSubseqSum2( int A[], int N )
 {   int ThisSum, MaxSum;
     int i,array_end;
     ThisSum = MaxSum = 0;
@@ -111,7 +94,7 @@ int MaxSubseqSum4( int A[], int N )
 //    for(i = 0; i < arraycount; i++)
 //        scanf("%d", a + i);
 //
-//    MaxSubseqSum4(a, arraycount);
+//    MaxSubseqSum2(a, arraycount);
 //    free(a);
 //    return 0;
 //}

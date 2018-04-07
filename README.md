@@ -50,7 +50,7 @@ All code will be marked \`\`\`Language ...code... \`\`\` when the lecture is rea
 __Write the following Lecture notes:__
 
 - [ ] Lecture 1 - 算法的效率度量和算法复杂度
-- [ ] Lecture 2- 线性表的概念及实现
+- [ ] Lecture 2 - 线性表的概念及实现
 - [ ] Lecture 3 - 栈的概念及实现
 - [ ] Lecture 4 - 队列的概念及实现
 - [ ] Lecture 5 - 一般树的表示
