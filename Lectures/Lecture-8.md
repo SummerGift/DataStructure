@@ -16,11 +16,11 @@
     3.若两者比较结果是相等，搜索完成，返回指向此结点的指针。
 
 
-![1523856492024](F:\git_repositories\DataStructure\Lectures\assets\1523856492024.png)
+![1523856492024](assets/1523856492024.png)
 
 - 由于非递归函数的执行效率高，可将“尾递归”函数改为迭代函数。
 
-![1523856765127](F:\git_repositories\DataStructure\Lectures\assets\1523856765127.png)
+![1523856765127](assets/1523856765127.png)
 
 ### 查找最大和最小元素
 
