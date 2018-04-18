@@ -18,7 +18,10 @@ ___
 
 0. [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Lecture-0.md)
 1. [Lecture 5 - 树与树的表示](./Lectures/Lecture-5.md)
-1. [Lecture 6 - 二叉树及其存储](./Lectures/Lecture-6.md)
+2. [Lecture 6 - 二叉树及其存储](./Lectures/Lecture-6.md)
+3. [Lecture 7 - 二叉树的遍历](./Lectures/Lecture-7.md)
+4. [Lecture 8 - 二叉搜索树](./Lectures/Lecture-8.md)
+5. [Lecture 9 - 平衡二叉树](./Lectures/Lecture-9.md)
 
 **Note :** The lectures above are only the lectures I have compiled so far. For a complete list of the Lectures I am working on, checkout the [roadmap](#roadmap).
 
