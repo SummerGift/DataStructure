@@ -34,6 +34,10 @@ Sample Input 2:
 88 70 61 96 120 90 65
 Sample Output 2:
 
-88*/
+88
+*/
+
+
+
 
 
