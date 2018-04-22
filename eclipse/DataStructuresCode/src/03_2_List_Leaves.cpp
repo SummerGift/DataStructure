@@ -40,3 +40,27 @@ Sample Output:
 
 4 1 5
 */
+
+
+#include<iostream>
+#include<vector>
+#include<queue>
+
+using namespace std;
+
+typedef int tree;
+
+int main()
+{
+	cout << "hello " << endl;
+	return 0;
+}
+
+
+
+
+
+
+
+
+
