@@ -1,12 +1,12 @@
 /*
  * Maxsubsequencesum.cpp
  *
- *  Created on: 2018Äê3ÔÂ8ÈÕ
+ *  Created on: 2018å¹´3æœˆ8æ—¥
  *      Author: Administrator
  */
 
 /*
-01-¸´ÔÓ¶È2 Maximum Subsequence Sum£¨25 ·Ö£©
+01-å¤æ‚åº¦2 Maximum Subsequence Sumï¼ˆ25 åˆ†ï¼‰
 
 Given a sequence of K integers { N1, N2, ..., NK }.
 A continuous subsequence is defined to be { Ni, Ni+1, ..., Nj } where 1 <= i <= j <= K.
@@ -46,21 +46,21 @@ static int MaxSubseqSum2( int A[], int N )
 
     for( i = 0; i < N; i++ )
     {
-        ThisSum += A[i]; /* ÏòÓÒÀÛ¼Ó */
+        ThisSum += A[i]; /* å‘å³ç´¯åŠ  */
 
         if( A[i] >= 0 )
             allnative = 0;
 
         if( ThisSum > MaxSum )
         {
-            MaxSum = ThisSum; /* ·¢ÏÖ¸ü´óºÍÔò¸üĞÂµ±Ç°½á¹û */
+            MaxSum = ThisSum; /* å‘ç°æ›´å¤§å’Œåˆ™æ›´æ–°å½“å‰ç»“æœ */
             zero_count++;
             array_end = i;
             save_array_begin = array_begin;
         }else
-        if( ThisSum < 0 ) /* Èç¹ûµ±Ç°×ÓÁĞºÍÎª¸º */
+        if( ThisSum < 0 ) /* å¦‚æœå½“å‰å­åˆ—å’Œä¸ºè´Ÿ */
         {
-            ThisSum = 0 ; /* Ôò²»¿ÉÄÜÊ¹ºóÃæµÄ²¿·ÖºÍÔö´ó£¬Å×ÆúÖ® */
+            ThisSum = 0 ; /* åˆ™ä¸å¯èƒ½ä½¿åé¢çš„éƒ¨åˆ†å’Œå¢å¤§ï¼ŒæŠ›å¼ƒä¹‹ */
             array_begin = i + 1;
         }
     }
@@ -89,7 +89,7 @@ static int MaxSubseqSum2( int A[], int N )
 //    int arraycount;
 //    scanf("%d",&arraycount);
 //
-//    a = (int *)malloc(sizeof(int) * arraycount); /*·ÖÅäÄÚ´æ*/
+//    a = (int *)malloc(sizeof(int) * arraycount); /*åˆ†é…å†…å­˜*/
 //
 //    for(i = 0; i < arraycount; i++)
 //        scanf("%d", a + i);

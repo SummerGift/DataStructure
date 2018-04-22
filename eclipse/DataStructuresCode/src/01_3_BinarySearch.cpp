@@ -1,19 +1,19 @@
 /*
  * BinarySearch.cpp
  *
- *  Created on: 2018Äê4ÔÂ7ÈÕ
+ *  Created on: 2018å¹´4æœˆ7æ—¥
  *      Author: Summer
  */
 
 
 /*
- * 01-¸´ÔÓ¶È3 ¶þ·Ö²éÕÒ£¨20 ·Ö£©
- ±¾ÌâÒªÇóÊµÏÖ¶þ·Ö²éÕÒËã·¨¡£
+ * 01-å¤æ‚åº¦3 äºŒåˆ†æŸ¥æ‰¾ï¼ˆ20 åˆ†ï¼‰
+ æœ¬é¢˜è¦æ±‚å®žçŽ°äºŒåˆ†æŸ¥æ‰¾ç®—æ³•ã€‚
 
- º¯Êý½Ó¿Ú¶¨Òå£º
+ å‡½æ•°æŽ¥å£å®šä¹‰ï¼š
 
  Position BinarySearch( List L, ElementType X );
- ÆäÖÐList½á¹¹¶¨ÒåÈçÏÂ£º
+ å…¶ä¸­Listç»“æž„å®šä¹‰å¦‚ä¸‹ï¼š
 
  typedef int Position;
  typedef struct LNode *List;
@@ -22,12 +22,12 @@
 	 Position Last;
  };
 
- LÊÇÓÃ»§´«ÈëµÄÒ»¸öÏßÐÔ±í£¬ÆäÖÐElementTypeÔªËØ¿ÉÒÔÍ¨¹ý>¡¢==¡¢<½øÐÐ±È½Ï£¬
- ²¢ÇÒÌâÄ¿±£Ö¤´«ÈëµÄÊý¾ÝÊÇµÝÔöÓÐÐòµÄ¡£º¯ÊýBinarySearchÒª²éÕÒXÔÚDataÖÐµÄÎ»ÖÃ£¬
- ¼´Êý×éÏÂ±ê£¨×¢Òâ£ºÔªËØ´ÓÏÂ±ê1¿ªÊ¼´æ´¢£©¡£
- ÕÒµ½Ôò·µ»ØÏÂ±ê£¬·ñÔò·µ»ØÒ»¸öÌØÊâµÄÊ§°Ü±ê¼ÇNotFound¡£
+ Læ˜¯ç”¨æˆ·ä¼ å…¥çš„ä¸€ä¸ªçº¿æ€§è¡¨ï¼Œå…¶ä¸­ElementTypeå…ƒç´ å¯ä»¥é€šè¿‡>ã€==ã€<è¿›è¡Œæ¯”è¾ƒï¼Œ
+ å¹¶ä¸”é¢˜ç›®ä¿è¯ä¼ å…¥çš„æ•°æ®æ˜¯é€’å¢žæœ‰åºçš„ã€‚å‡½æ•°BinarySearchè¦æŸ¥æ‰¾Xåœ¨Dataä¸­çš„ä½ç½®ï¼Œ
+ å³æ•°ç»„ä¸‹æ ‡ï¼ˆæ³¨æ„ï¼šå…ƒç´ ä»Žä¸‹æ ‡1å¼€å§‹å­˜å‚¨ï¼‰ã€‚
+ æ‰¾åˆ°åˆ™è¿”å›žä¸‹æ ‡ï¼Œå¦åˆ™è¿”å›žä¸€ä¸ªç‰¹æ®Šçš„å¤±è´¥æ ‡è®°NotFoundã€‚
 
- ²ÃÅÐ²âÊÔ³ÌÐòÑùÀý£º
+ è£åˆ¤æµ‹è¯•ç¨‹åºæ ·ä¾‹ï¼š
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -60,22 +60,22 @@ int main()
     return 0;
 }
 
-// ÄãµÄ´úÂë½«±»Ç¶ÔÚÕâÀï
+// ä½ çš„ä»£ç å°†è¢«åµŒåœ¨è¿™é‡Œ
 
-ÊäÈëÑùÀý1£º
+è¾“å…¥æ ·ä¾‹1ï¼š
 
 5
 12 31 55 89 101
 31
-Êä³öÑùÀý1£º
+è¾“å‡ºæ ·ä¾‹1ï¼š
 
 2
-ÊäÈëÑùÀý2£º
+è¾“å…¥æ ·ä¾‹2ï¼š
 
 3
 26 78 233
 31
-Êä³öÑùÀý2£º
+è¾“å‡ºæ ·ä¾‹2ï¼š
 
 0
 
