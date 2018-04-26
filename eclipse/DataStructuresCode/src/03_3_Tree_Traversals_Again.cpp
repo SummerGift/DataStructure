@@ -57,4 +57,109 @@ Sample Output:
 3 4 2 6 5 1
 */
 
+/*
+ * 递归遍历和非递归中序遍历树，递归遍历是先递归的访问树的左子树，然后打印出根节点，然后递归访问右子树。
+ * 而非递归中序遍历的情况，是我们自己创建一个栈，先将根节点入栈，然后访问左子树，然后把子树的根节点压入栈。
+ * 在非递归中序遍历 PUSH 的顺序是先序遍历的顺序，POP 的顺序相当于是中序遍历的结果。
+ * 这个题目就变成了知道了一个树的先序和中序遍历结果，求后续遍历结果。
+*/
+
+#include<iostream>
+#include<string>
+#include<vector>
+#include<stack>
+
+using namespace std;
+
+
+//将输入的内容纪录下来，分别存入先序遍历数组和中序遍历数组
+vector<vector<int>> getorder(int n) {
+	vector<int> preorder(n, 0);
+	vector<int> inorder(n, 0);
+	stack<int> st;
+	int prel = 0, inl = 0;
+
+	for (int i = 0; i < 2 * n; i++) {
+		string str;
+		int tmp;
+		cin >> str;
+		if (str == "Push") {
+			cin >> tmp;
+			preorder[prel++] = tmp;
+			st.push(tmp);
+		} else if (str == "Pop") {
+			inorder[inl++] = st.top();
+			st.pop();
+		}
+	}
+
+	return {preorder, inorder};
+}
+
+//输入先序遍历数组和中序遍历数组，返回后序遍历数组
+
+void getpostorder(vector<int> preorder, int prel, vector<int> inorder, int inl,
+		vector<int> &postorder, int postl, int n) {
+	if (n == 0)
+		return;
+	if (n == 1) {
+		postorder[postl] = preorder[prel];
+		return;
+	}
+
+	auto root = preorder[prel];        //从先序遍历的第一个节点拿到根节点
+	postorder[postl + n - 1] = root;    //放在后序遍历的最后一个位置上
+
+	//在中序遍历数组上找出 ROOT 的位置
+	int i = 0;
+	while (i < n) {
+		if (inorder[inl + i] == root)
+			break;
+		i++;
+	}
+
+	//计算出 ROOT 节点左右子树节点的个数
+	int L = i, R = n - i - 1;
+
+	getpostorder(preorder, prel + 1, inorder, inl, postorder, postl, L);
+	getpostorder(preorder, prel + L + 1, inorder, inl + L + 1, postorder,
+			postl + L, R);
+}
+
+
+
+/*
+ * 先将先序和中序遍历的输出存入数组，然后再从中得到后序遍历的输出。
+ */
+
+int main() {
+	int n;
+	cin >> n;
+	auto res = getorder(n);
+	vector<int> postorder(n, 0);
+	getpostorder(res[0], 0, res[1], 0, postorder, 0, n);
+
+	int i = 0;
+	for (; i < n - 1; i++) {
+		cout << postorder[i] << " ";
+	}
+	cout << postorder[i] << endl;
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
