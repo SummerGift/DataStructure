@@ -23,6 +23,7 @@ ___
 4. [Lecture 7 - 二叉树的遍历](./Lectures/Lecture-7.md)
 5. [Lecture 8 - 二叉搜索树](./Lectures/Lecture-8.md)
 6. [Lecture 9 - 平衡二叉树](./Lectures/Lecture-9.md)
+7. [Lecture 10 - 图的概念]
 
 **Note :** The lectures above are only the lectures I have compiled so far. For a complete list of the Lectures I am working on, checkout the [roadmap](#roadmap).
 
