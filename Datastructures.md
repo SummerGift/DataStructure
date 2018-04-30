@@ -20,4 +20,5 @@ This file contains a list of all the Data structure exercises that I have implem
 - 03-1 [Tree_isomorphism (C)](./eclipse/DataStructuresCode/src/03_1_Tree_isomorphism.cpp)
 - 03-2 [List_Leaves (C++)](./eclipse/DataStructuresCode/src/03_2_List_Leaves.cpp)
 - 03-3 [Tree Traversals Again (C)](./eclipse/DataStructuresCode/src/03_3_Tree_Traversals_Again.cpp)
+- 03-4 [Is Same BinarySearch Tree (C)](./eclipse/DataStructuresCode/src/04_4_IsSameBinarySearchTree.cpp)
 
