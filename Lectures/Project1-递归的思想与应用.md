@@ -1,6 +1,8 @@
 # 递归的思想与应用
 
-## 递归是数学上分而治之的思想
+- [递归代码示例](../eclipse/DataStructuresCode/src/Project_01_recursive_function.cpp)
+
+## 1 递归是数学上分而治之的思想
 
 - 将原问题分解为规模较小的问题进行处理
     - 分解后的问题与原问题类型完全相同，但规模较小
@@ -9,25 +11,25 @@
     - 当边界条件不满足时，分解问题（递归继续进行）
     - 当边界条件满足时，直接求解（递归结束）
 
-### 递归模型的一般表示方法如下：
+### 1.1 递归模型的一般表示方法
 
 ![1525163251581](assets/1525163251581.png)
 
 
-## 递归在程序设计中的应用
+## 2 递归在程序设计中的应用
 
 - 递归函数
   - 函数体中存在自我调用的函数
   - 递归函数`必须有递归出口`（边界条件）
   - 函数的`无限递归将导致程序崩溃`
 
-### 递归求和
+### 2.1 递归求和
 
 ![1525163382095](assets/1525163382095.png)
 
 - 代码实现：
 
-```
+```c
 unsigned int sum(int n) {
 	if (n > 1)
 		return n + sum(n - 1);
@@ -37,13 +39,13 @@ unsigned int sum(int n) {
 }
 ```
 
-### 斐波那契数列
+### 2.2 斐波那契数列
 
 ![1525163413002](assets/1525163413002.png)
 
 - 代码实现：
 
-```
+```c
 unsigned int fac(int n) {
 	if (n >= 3) {
 		return fac(n - 1) + fac(n - 2);
@@ -56,13 +58,13 @@ unsigned int fac(int n) {
 		return 1;
 }
 ```
-### 用递归的方法编写函数求字符串长度
+### 2.3 用递归的方法编写函数求字符串长度
 
-###![1525163475986](assets/1525163475986.png)
+![1525163475986](assets/1525163475986.png)
 
 - 代码实现：
 
-```
+```c
 unsigned int get_strlen(char *s){
 	if(*s != '\0')
 		return 1 + get_strlen(s + 1);
@@ -70,7 +72,55 @@ unsigned int get_strlen(char *s){
 		return 0;
 }
 ```
-## 小结
+### 2.4 单向链表的转置
+
+![1525184315854](assets/1525184315854.png)
+
+- 代码实现：
+
+```c
+List reverse(List list) {
+	if ((list == NULL || list->Next == NULL)) {
+		return list;
+	} else {
+		List guard = list->Next;
+		List ret = reverse(list->Next);
+		guard->Next = list;
+		list->Next = NULL;
+		return ret;
+	}
+}
+```
+
+### 2.5 单向排序链表的合并
+
+![1525184468714](assets/1525184468714.png)
+
+- 代码实现：
+
+```c
+List List_Merge(List L1, List L2) {
+	if (L1 == NULL) {
+		return L2;
+	} else if (L2 == NULL) {
+		return L1;
+	} else if (L1->Data <= L2->Data) {
+		List list_1 = L1->Next;
+		List list = List_Merge(list_1, L2);
+		L1->Next = list;
+		return L1;
+	} else {
+		List list_2 = L2->Next;
+		List list = List_Merge(list_2, L1);
+		L2->Next = list;
+		return L2;
+	}
+}
+```
+
+### 2.5 汉诺塔问题
+
+## 3 总结
 
 - 递归是一种将问题`分而治之`的思想
 - 用递归解决问题`首先要建立递归的模型`
