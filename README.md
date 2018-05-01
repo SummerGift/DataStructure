@@ -16,16 +16,19 @@ ___
 
 ### Lecture Notes
 
-0. [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Lecture-0.md)
-1. [Lecture 2 - 线性表的概念及实现](./Lectures/Lecture-2.md)
-2. [Lecture 5 - 树与树的表示](./Lectures/Lecture-5.md)
-3. [Lecture 6 - 二叉树及其存储](./Lectures/Lecture-6.md)
-4. [Lecture 7 - 二叉树的遍历](./Lectures/Lecture-7.md)
-5. [Lecture 8 - 二叉搜索树](./Lectures/Lecture-8.md)
-6. [Lecture 9 - 平衡二叉树](./Lectures/Lecture-9.md)
-7. [Lecture 10 - 图的概念]
-
-**Note :** The lectures above are only the lectures I have compiled so far. For a complete list of the Lectures I am working on, checkout the [roadmap](#roadmap).
+- [X] [Lecture 1.1 - 数据结构和算法的概念及其重要性](./Lectures/Lecture-0.md)
+- [ ] [Lecture 2.1 - 线性表的概念及实现](./Lectures/Lecture-2.md)
+- [ ] [Lecture 2.2 - 堆栈](./Lectures/Lecture-2.md)
+- [ ] [Lecture 2.3 - 队列](./Lectures/Lecture-2.md)
+- [ ] [Lecture 3.1 - 树与树的表示](./Lectures/Lecture-5.md)
+- [ ] [Lecture 3.2 - 二叉树及其存储](./Lectures/Lecture-6.md)
+- [ ] [Lecture 3.3 - 二叉树的遍历](./Lectures/Lecture-7.md)
+- [ ] [Lecture 4.1 - 二叉搜索树](./Lectures/Lecture-8.md)
+- [ ] [Lecture 4.2 - 平衡二叉树](./Lectures/Lecture-9.md)
+- [ ] [Lecture 5.1 - 堆]
+- [ ] [Lecture 5.2 - 哈夫曼树与哈夫曼编码]
+- [ ] [Lecture 5.3 - 集合及运算]
+- [ ] [Lecture 12 - 集合及运算]
 
 ### Datastructures exercises
 
@@ -47,20 +50,3 @@ All code will be marked \`\`\`Language ...code... \`\`\` when the lecture is rea
     }
     ```
   * All C code is Compiled with ```MinGW.org GCC-6.3.0-1```.
-
-### Roadmap
-
-- [x] Write Lectures 0 - 0:
-
-* [Lecture 0 - 数据结构的概念及其重要性](./Lectures/Lecture-0.md)
-* [Lecture 5 - 树与树的表示](./Lectures/Lecture-5.md)
-
-__Write the following Lecture notes:__
-
-- [ ] Lecture 1 - 算法的效率度量和算法复杂度
-- [ ] Lecture 2 - 线性表的概念及实现
-- [ ] Lecture 3 - 栈的概念及实现
-- [ ] Lecture 4 - 队列的概念及实现
-- [ ] Lecture 5 - 树与树的表示
-- [ ] Lecture 6 - 二叉树及其存储
-- [ ] Lecture 7 - 二叉树的遍历
