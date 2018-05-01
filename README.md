@@ -35,7 +35,7 @@ Check out [Datastructures.md](./Datastructures.md) for a list of all Datastructu
 
 ### Project Learning
 
-- [ ] [ 递归的思想与应用](./Lectures/递归的思想与应用.md)
+- [x] [ 递归的思想与应用](./Lectures/Project1-递归的思想与应用.md)
 
 ## Note style
 
