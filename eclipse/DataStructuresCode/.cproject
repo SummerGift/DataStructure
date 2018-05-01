@@ -83,7 +83,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="Project_01_recursive_function.cpp|04_7_Binarysearch_tree_operation_set.cpp|04_4_IsSameBinarySearchTree.cpp|03_3_Tree_Traversals_Again.cpp|03_2_List_Leaves.cpp|04_5_Root_of_AVL_Tree.cpp|03_1_Tree_isomorphism.cpp|02_4_Pop_Sequence.cpp|02_3_Reversing_Linked_List.cpp|02_2_list_mult_add.cpp|02_1_List_Merge.cpp|01_3_BinarySearch.cpp|01_2_Maximum_Subsequence_Sum.cpp|01_1_Maxsubsequencesum_question.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        <entry excluding="02_2_list_mult_add.cpp|04_7_Binarysearch_tree_operation_set.cpp|04_4_IsSameBinarySearchTree.cpp|03_3_Tree_Traversals_Again.cpp|03_2_List_Leaves.cpp|04_5_Root_of_AVL_Tree.cpp|03_1_Tree_isomorphism.cpp|02_4_Pop_Sequence.cpp|02_3_Reversing_Linked_List.cpp|02_1_List_Merge.cpp|01_3_BinarySearch.cpp|01_2_Maximum_Subsequence_Sum.cpp|01_1_Maxsubsequencesum_question.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
                         					
                     </sourceEntries>
                     				
