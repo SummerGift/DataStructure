@@ -118,7 +118,50 @@ List List_Merge(List L1, List L2) {
 }
 ```
 
-### 2.5 汉诺塔问题
+### 2.6 汉诺塔问题
+
+![1525436823759](assets/1525436823759.png)
+
+![1525436858718](assets/1525436858718.png)
+
+- 代码实现：
+
+```c
+//汉诺塔问题：从 a 到 c, b 为中转站
+void HanoiTower(int n, char a, char b, char c) {
+	if (n == 1) {
+		cout << a << "-->" << c << endl;
+	} else {
+		HanoiTower(n - 1, a, c, b);
+		HanoiTower(1, a, b, c);
+		HanoiTower(n - 1, b, a, c);
+	}
+}
+```
+
+### 2.7 全排列问题
+
+![1525441443912](assets/1525441443912.png)
+
+- 代码实现：
+
+```c
+void permutation(char *s, char *e) {
+	if (*s == '\0') {
+		cout << e << endl;
+	} else {
+		int len = strlen(s);
+
+		for (int i = 0; i < len; i++) {
+			if ((i == 0) || (s[0] != s[i])) {
+				swap(s[0], s[i]);
+				permutation(s + 1, e);
+				swap(s[0], s[i]);
+			}
+		}
+	}
+}
+```
 
 ## 3 总结
 
