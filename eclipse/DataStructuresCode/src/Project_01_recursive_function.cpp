@@ -103,6 +103,61 @@ void permutation(char *s, char *e) {
     }
 }
 
+void list_attach(int data,List *pRear) {
+    List P;
+
+    P = (List) malloc(sizeof(struct Node));
+    P->Data = data;
+    P->Next = NULL;
+
+    (*pRear)->Next = P; //让尾节点的指针指向新的节点
+    *pRear = P;         //更新尾指针指向的位置
+}
+
+List create_list(int n) {
+
+    List P, Rear, t;
+
+    P = (List) malloc(sizeof(struct Node));
+    P->Next = NULL;
+    Rear = P;
+
+    for (int i = 0; i < n; i++) {
+        list_attach(i, &Rear);
+    }
+
+    t = P;
+    P = P->Next;
+    free(t);
+
+    return P;
+}
+
+void print_list(List P) {
+    if (!P) {
+        printf("null \n");
+        return;
+    }
+
+    while (P) {
+        printf("%d\n", P->Data);
+        P = P->Next;
+    }
+
+    printf("\n");
+}
+
+//递归实现的反向输出链表中的偶数
+void r_print_even(List list) {
+    if (list != NULL) {
+        r_print_even(list->Next);
+
+        if ((list->Data % 2) == 0) {
+            cout << list->Data << endl;
+        }
+    }
+}
+
 int main() {
 //	cout << "sum :" << sum(100) << endl;
 //
@@ -115,6 +170,10 @@ int main() {
 
 //	char string[] = "aaa";
 //	permutation(string,string);
+
+//    List test = create_list(7);
+//    print_list(test);
+//    r_print_even(test);
 
     return 0;
 }
