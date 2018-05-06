@@ -16,10 +16,10 @@ ___
 
 ### Lecture Notes
 
-- [ ] [Lecture 1.1 - 数据结构和算法的概念及其重要性](./Lectures/Lecture-1.1.md)
-- [X] [Lecture 2.1 - 线性表的概念及实现](./Lectures/Lecture-2.1.md)
-- [ ] [Lecture 2.2 - 堆栈](./Lectures/Lecture-2.2.md)
-- [ ] [Lecture 2.3 - 队列](./Lectures/Lecture-2.3.md)
+- [ ] [Lecture 1.1 - 引论](./Lectures/Lecture-1.1.md)
+- [X] [Lecture 2.1 - 表 ADT](./Lectures/Lecture-2.1.md)
+- [ ] [Lecture 2.2 - 栈 ADT](./Lectures/Lecture-2.2.md)
+- [ ] [Lecture 2.3 - 队列 ADT](./Lectures/Lecture-2.3.md)
 - [X] [Lecture 3.1 - 树与树的表示](./Lectures/Lecture-3.1.md)
 - [X] [Lecture 3.2 - 二叉树及其存储](./Lectures/Lecture-3.2.md)
 - [X] [Lecture 3.3 - 二叉树的遍历](./Lectures/Lecture-3.3.md)
