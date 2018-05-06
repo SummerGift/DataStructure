@@ -20,8 +20,14 @@
 
 - 递归函数
   - 函数体中存在自我调用的函数
-  - 递归函数`必须有递归出口`（边界条件）
+  - 递归函数`必须有递归出口`（base case 基准情况），在 c 的递归函数中若无基准情况是毫无意义的，因为递归调用将重复进行直到基准情形出现。
   - 函数的`无限递归将导致程序崩溃`
+  - 在设计递归程序时，同一问题的所有较小的实例均可以假设运行正确，递归程序只需要把这些较小问题的解（他们通过递归奇迹般地得到）结合起来而形成现行问题的解。其数学依据是`归纳法`。
+- 递归的基本法则
+  - 基准情形（base case）。你必须要有某些基准的情形，他们不用递归就能求解。
+  - 不断推进（making progress）。对于那些需要递归求解的情形，递归调用必须能够朝着产生基准情形的方向推进。
+  - 设计法则。假设所有的递归调用都能运行。
+  - 合成效益法则（compond interest rule) 。在求解一个问题的同一实例时，切勿在不同的递归调用中做重复性的工作。这一条可以通过求斐波那契数量列的递归程序说明。可以查看 2.2 章节，当传入的 `index >= 3` 时，会执行如下的操作 `fac(n - 1) + fac(n - 2);`，而当调用 `fac(n - 1)`时其实已经计算了后面要用到的 `fac(n - 2) `，但是这里却没有使用已经计算了一次的结果，造成了大量重复运算，导致程序效率低下。
 
 ### 2.1 递归求和
 
@@ -232,7 +238,74 @@ void r_print_even(List list) {
 
 ### 2.9 八皇后问题
 
+![1525602421047](assets/1525602421047.png)
 
+- 题目分析
+
+- 代码实现：
+```
+  #include<iostream>
+  using namespace std;
+  static int g_chessboard[8] = { 0 }, gCount = 0;
+
+  void print() //输出每一种情况下棋盘中皇后的摆放情况
+  {
+      for (int i = 0; i < 8; i++) {
+          int inner;
+          for (inner = 0; inner < g_chessboard[i]; inner++)
+              cout << "0";
+          cout << "#";
+          for (inner = g_chessboard[i] + 1; inner < 8; inner++)
+              cout << "0";
+          cout << endl;
+      }
+      cout << "==========================\n";
+  }
+
+  int check_pos_valid(int loop, int value)    //检查是否存在有多个皇后在同一行/列/对角线的情况
+          {
+      int index;
+      int data;
+      for (index = 0; index < loop; index++) {
+          data = g_chessboard[index];
+          if (value == data)
+              return 0;
+          if ((index + data) == (loop + value))
+              return 0;
+          if ((index - data) == (loop - value))
+              return 0;
+      }
+      return 1;
+  }
+
+  void eight_queen(int index) {
+      int loop;
+      for (loop = 0; loop < 8; loop++) {
+          if (check_pos_valid(index, loop)) {
+              g_chessboard[index] = loop;
+              if (7 == index) {
+                  gCount++, print();
+                  g_chessboard[index] = 0;
+                  return;
+              }
+              eight_queen(index + 1);
+              g_chessboard[index] = 0;
+          }
+      }
+  }
+
+  int main(int argc, char*argv[]) {
+      eight_queen(0);
+      cout << "total=" << gCount << endl;
+      return 0;
+  }
+```
+
+- 小结
+    - 程序运行后的`栈存储区`专供函数调用使用
+    - 栈存储区用于保存实参，局部变量，临时变量，寄存器等函数调用信息
+    - 利用栈存储区能够方便的实现回溯算法
+    - 八皇后问题是栈回溯的经典应用，仔细思考八皇后问题可以了解回溯算法的设计
 
 ## 3 总结
 
