@@ -243,7 +243,7 @@ void r_print_even(List list) {
 - 题目分析
 
 - 代码实现：
-```
+```c
   #include<iostream>
   using namespace std;
   static int g_chessboard[8] = { 0 }, gCount = 0;
