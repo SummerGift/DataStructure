@@ -14,28 +14,50 @@ ___
 
 ## Content
 
-### Lecture Notes
+### 1. 数据结构与算法学习分析总结
+#### 第一章：基本概念
+- [ ] [Lecture 1.1 - 数据结构与算法](./Lectures/Lecture-1.1.md)
+- [x] [Lecture 1.2 - 递归的思想与应用](./Lectures/Lecture-1.2.md)
+#### 第二章：表、栈和队列
+- [x] [Lecture 2.1 - 抽象数据类型 ADT](./Lectures/抽象数据类型.md)
+- [x] [Lecture 2.2 - 表 ADT](./Lectures/表ADT.md)
+- [ ] [Lecture 2.3 - 栈 ADT](./Lectures/栈ADT.md)
+- [ ] [Lecture 2.4 - 队列 ADT](./Lectures/队列ADT.md)
+#### 第三章：树
+- [x] [Lecture 3.1 - 树的预备知识](./Lectures/Lecture-3.1.md)
+- [x] [Lecture 3.2 - 二叉树](./Lectures/Lecture-3.2.md)
+- [x] [Lecture 3.3 - 查找树 ADT(二叉查找树)](./Lectures/Lecture-3.3.md)
+- [x] [Lecture 3.4 - AVL树](./Lectures/Lecture-3.4.md)
+#### 第四章：优先队列（堆）
+- [ ] [Lecture 4.1 - 堆](./Lectures/Lecture-4.1.md)
+- [ ] [Lecture 4.2 - 哈夫曼树与哈夫曼编码](./Lectures/Lecture-4.2.md)
+- [ ] [Lecture 4.3 - 集合及运算](./Lectures/Lecture-4.3.md)
+#### 第五章：图论算法
+#### 第六章：排序
 
-- [ ] [Lecture 1.1 - 引论](./Lectures/Lecture-1.1.md)
-- [X] [Lecture 2.1 - 表 ADT](./Lectures/Lecture-2.1.md)
-- [ ] [Lecture 2.2 - 栈 ADT](./Lectures/Lecture-2.2.md)
-- [ ] [Lecture 2.3 - 队列 ADT](./Lectures/Lecture-2.3.md)
-- [X] [Lecture 3.1 - 树与树的表示](./Lectures/Lecture-3.1.md)
-- [X] [Lecture 3.2 - 二叉树及其存储](./Lectures/Lecture-3.2.md)
-- [X] [Lecture 3.3 - 二叉树的遍历](./Lectures/Lecture-3.3.md)
-- [X] [Lecture 4.1 - 二叉搜索树](./Lectures/Lecture-4.1.md)
-- [X] [Lecture 4.2 - 平衡二叉树](./Lectures/Lecture-4.2.md)
-- [ ] [Lecture 5.1 - 堆](./Lectures/Lecture-5.1.md)
-- [ ] [Lecture 5.2 - 哈夫曼树与哈夫曼编码](./Lectures/Lecture-5.2.md)
-- [ ] [Lecture 5.3 - 集合及运算](./Lectures/Lecture-5.3.md)
+### 2. 数据结构与算法分析练习题
 
-### Datastructures exercises
+#### 1. Complexity
 
-Check out [Datastructures.md](./Datastructures.md) for a list of all Datastructures exercises implemented in the repository.
+* 01-1 [Maxsubsequencesum_question (C)](./eclipse/DataStructuresCode/src/01_1_Maxsubsequencesum_question.cpp)
+* 01-2 [Maximum_Subsequence_Sum (C)](./eclipse/DataStructuresCode/src/01_2_Maximum_Subsequence_Sum.cpp)
+* 01-3 [BinarySearch (C)](./eclipse/DataStructuresCode/src/01_3_BinarySearch.cpp)
+* 01-4 [RecursiveProject(C++)](./eclipse/DataStructuresCode/src/Project_01_recursive_function.cpp) 
 
-### Project Learning
+#### 2. List
 
-- [x] [ 递归的思想与应用](./Lectures/Project1-递归的思想与应用.md)
+* 02-1 [List_Merge (C)](./eclipse/DataStructuresCode/src/02_1_List_Merge.cpp)
+* 02-2 [list_mult_add (C)](./eclipse/DataStructuresCode/src/02_2_list_mult_add.cpp)
+* 02-3 [Reversing_Linked_List (C)](./eclipse/DataStructuresCode/src/02_3_Reversing_Linked_List.cpp)
+* 02-4 [Pop_Sequence (C++)](./eclipse/DataStructuresCode/src/02_4_Pop_Sequence.cpp)
+
+#### 3. Trees
+
+- 03-1 [Tree_isomorphism (C)](./eclipse/DataStructuresCode/src/03_1_Tree_isomorphism.cpp)
+- 03-2 [List_Leaves (C++)](./eclipse/DataStructuresCode/src/03_2_List_Leaves.cpp)
+- 03-3 [Tree Traversals Again (C)](./eclipse/DataStructuresCode/src/03_3_Tree_Traversals_Again.cpp)
+- 04-4 [Is Same BinarySearch Tree (C)](./eclipse/DataStructuresCode/src/04_4_IsSameBinarySearchTree.cpp)
+- 04-7 [Binarysearch tree operation set (C)](./eclipse/DataStructuresCode/src/04_7_Binarysearch_tree_operation_set.cpp)
 
 ## Note style
 
