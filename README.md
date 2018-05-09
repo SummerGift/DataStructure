@@ -19,10 +19,11 @@ ___
 - [ ] [Lecture 1.1 - 数据结构与算法](./Lectures/Lecture-1.1.md)
 - [x] [Lecture 1.2 - 递归的思想与应用](./Lectures/Lecture-1.2.md)
 #### 第二章：表、栈和队列
-- [x] [Lecture 2.1 - 抽象数据类型 ADT](./Lectures/抽象数据类型.md)
+- [x] [Lecture 2.1 - 抽象数据类型 ADT](./Lectures/抽象数据类型ADT.md)
 - [x] [Lecture 2.2 - 表 ADT](./Lectures/表ADT.md)
 - [ ] [Lecture 2.3 - 栈 ADT](./Lectures/栈ADT.md)
 - [ ] [Lecture 2.4 - 队列 ADT](./Lectures/队列ADT.md)
+- [ ] [Lecture 2.5 - 通用链表的实现](./Lectures/通用链表的实现.md)
 #### 第三章：树
 - [x] [Lecture 3.1 - 树的预备知识](./Lectures/Lecture-3.1.md)
 - [x] [Lecture 3.2 - 二叉树](./Lectures/Lecture-3.2.md)
