@@ -69,7 +69,65 @@ Sample Output 2:
 88
 */
 
+#include <stdio.h>
+#include <stdlib.h>
 
+typedef struct ALVNode *AVLTree;
+typedef struct ALVNode *Position;
+struct ALVNode{
+    int Data;
+    int Height;
+    AVLTree Left;
+    AVLTree Right;
+};
+
+AVLTree Insert(int X, AVLTree T);
+int GetHeight(Position T);
+int Max(int a, int b);
+Position SingleLeft(Position K);
+Position SingleRight(Position K);
+Position DoubleLeft(Position K);
+Position DoubleRight(Position K);
+
+int GetHeight(Position T) {
+    if (!T) {
+        return -1;
+    } else {
+        return T->Height;
+    }
+}
+
+int Max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+AVLTree Insert(int X, AVLTree T){
+    if(T == NULL){
+        T = (AVLTree)malloc(sizeof(struct ALVNode));
+        T->Data = X;
+        T->Height = 0;
+        T->Left = T->Right = NULL;
+    }else if(X < T->Data){
+
+    }
+}
+
+
+int main() {
+    AVLTree T = NULL;
+    int n;
+    scanf("%d", &n);
+    while (n--) {
+        int x;
+        scanf("%d", &x);
+        T = Insert(x, T);
+    }
+    if (T) {
+        printf("%d", T->Data);
+    }
+
+    return 0;
+}
 
 
 
