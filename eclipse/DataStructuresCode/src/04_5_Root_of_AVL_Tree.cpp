@@ -160,6 +160,7 @@ AVLTree Insert(int X, AVLTree T) {
     return T;
 }
 
+/*
 int main() {
     AVLTree T = NULL;
     int n;
@@ -175,3 +176,4 @@ int main() {
 
     return 0;
 }
+*/
