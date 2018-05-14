@@ -59,6 +59,7 @@ ___
 - 03-3 [Tree Traversals Again (C)](./eclipse/DataStructuresCode/src/03_3_Tree_Traversals_Again.cpp)
 - 04-4 [Is Same BinarySearch Tree (C)](./eclipse/DataStructuresCode/src/04_4_IsSameBinarySearchTree.cpp)
 - 04-5 [Root_of_AVL_Tree (C)](./eclipse/DataStructuresCode/src/04_5_Root_of_AVL_Tree.cpp)
+- 04-6 [Complete_Binary_Search_Tree (C)](./eclipse/DataStructuresCode/src/04_6_Complete_Binary_Search_Tree.cpp)
 - 04-7 [Binarysearch tree operation set (C)](./eclipse/DataStructuresCode/src/04_7_Binarysearch_tree_operation_set.cpp)
 
 ## Note style
