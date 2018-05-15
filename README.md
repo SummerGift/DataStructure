@@ -30,7 +30,7 @@ ___
 - [x] [Lecture 3.3 - 查找树 ADT(二叉查找树)](./Lectures/Lecture-3.3.md)
 - [x] [Lecture 3.4 - AVL树](./Lectures/Lecture-3.4.md)
 #### 第四章：优先队列（堆）
-- [ ] [Lecture 4.1 - 堆](./Lectures/Lecture-4.1.md)
+- [ ] [Lecture 4.1 - 堆](./Lectures/堆.md)
 - [ ] [Lecture 4.2 - 哈夫曼树与哈夫曼编码](./Lectures/Lecture-4.2.md)
 - [ ] [Lecture 4.3 - 集合及运算](./Lectures/Lecture-4.3.md)
 #### 第五章：图论算法
