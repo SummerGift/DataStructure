@@ -61,6 +61,7 @@ ___
 - 04-5 [Root_of_AVL_Tree (C)](./eclipse/DataStructuresCode/src/04_5_Root_of_AVL_Tree.cpp)
 - 04-6 [Complete_Binary_Search_Tree (C)](./eclipse/DataStructuresCode/src/04_6_Complete_Binary_Search_Tree.cpp)
 - 04-7 [Binarysearch tree operation set (C)](./eclipse/DataStructuresCode/src/04_7_Binarysearch_tree_operation_set.cpp)
+- 05-7 [堆中的路径 (C)](./eclipse/DataStructuresCode/src/05_7_heap_path.cpp)
 
 ## Note style
 
