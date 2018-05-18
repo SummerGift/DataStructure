@@ -30,7 +30,7 @@ ___
 - [x] [Lecture 3.3 - 查找树 ADT(二叉查找树)](./Lectures/Lecture-3.3.md)
 - [x] [Lecture 3.4 - AVL树](./Lectures/Lecture-3.4.md)
 #### 第四章：优先队列（堆）
-- [ ] [Lecture 4.1 - 堆](./Lectures/Lecture-4.1.md)
+- [ ] [Lecture 4.1 - 堆](./Lectures/堆.md)
 - [ ] [Lecture 4.2 - 哈夫曼树与哈夫曼编码](./Lectures/Lecture-4.2.md)
 - [ ] [Lecture 4.3 - 集合及运算](./Lectures/Lecture-4.3.md)
 #### 第五章：图论算法
@@ -58,7 +58,10 @@ ___
 - 03-2 [List_Leaves (C++)](./eclipse/DataStructuresCode/src/03_2_List_Leaves.cpp)
 - 03-3 [Tree Traversals Again (C)](./eclipse/DataStructuresCode/src/03_3_Tree_Traversals_Again.cpp)
 - 04-4 [Is Same BinarySearch Tree (C)](./eclipse/DataStructuresCode/src/04_4_IsSameBinarySearchTree.cpp)
+- 04-5 [Root_of_AVL_Tree (C)](./eclipse/DataStructuresCode/src/04_5_Root_of_AVL_Tree.cpp)
+- 04-6 [Complete_Binary_Search_Tree (C)](./eclipse/DataStructuresCode/src/04_6_Complete_Binary_Search_Tree.cpp)
 - 04-7 [Binarysearch tree operation set (C)](./eclipse/DataStructuresCode/src/04_7_Binarysearch_tree_operation_set.cpp)
+- 05-7 [堆中的路径 (C)](./eclipse/DataStructuresCode/src/05_7_heap_path.cpp)
 
 ## Note style
 
