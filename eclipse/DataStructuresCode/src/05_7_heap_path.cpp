@@ -26,4 +26,43 @@
 26 10
 */
 
+#include <stdio.h>
+#define MAX_NUM_HEAP 1001
+#define MIN_VALUE -10001
 
+int heap[MAX_NUM_HEAP], size;
+
+void create_heap(int *heap, int *heap_size) {
+    *heap_size = 0;
+    heap[0] = MIN_VALUE;
+}
+
+void heap_insert(int x) {
+    int i;
+    for (i = ++size; heap[i / 2] > x; i /= 2)
+        heap[i] = heap[i / 2];
+    heap[i] = x;
+}
+
+int main() {
+    int n, m, x, i, output_index;
+
+    scanf("%d %d", &n, &m);
+
+    create_heap(heap, &size);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &x);
+        heap_insert(x);
+    }
+
+    for (i = 0; i < m; i++) {
+        scanf("%d", &output_index);
+        printf("%d", heap[output_index]);
+        while (output_index > 1) {
+            output_index /= 2;
+            printf(" %d", heap[output_index]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
