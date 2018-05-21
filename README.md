@@ -21,7 +21,7 @@ ___
 #### 第二章：表、栈和队列
 - [x] [Lecture 2.1 - 抽象数据类型 ADT](./Lectures/Lecture-2.1-抽象数据类型ADT.md)
 - [x] [Lecture 2.2 - 表 ADT](./Lectures/Lecture-2.2-表ADT.md)
-- [ ] [Lecture 2.3 - 栈 ADT](./Lectures/Lecture-2.3-栈ADT.md)
+- [x] [Lecture 2.3 - 堆栈 ADT](./Lectures/Lecture-2.3-堆栈ADT.md)
 - [ ] [Lecture 2.4 - 队列 ADT](./Lectures/Lecture-2.4-队列ADT.md)
 - [ ] [Lecture 2.5 - 通用链表的实现](./Lectures/Lecture-2.5-通用链表的实现.md)
 #### 第三章：树
