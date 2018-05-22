@@ -71,4 +71,61 @@ yes
 yes
 The network is connected.
 */
+#include<stdio.h>
+#include<stdlib.h>
 
+#define MaxSize 100
+
+typedef int element_type;
+typedef int set_name;
+typedef element_type set_type[MaxSize];
+
+set_name find(set_type S, element_type X) {
+    for (; S[X] >= 0; X = S[X])
+        ;
+    return X;
+}
+
+void union_root(set_type S, set_name root1, set_name root2) {
+    S[root2] = root1;
+}
+
+void initialization(set_type S, int n) {
+
+}
+
+void input_connection(set_type S) {
+    element_type u,v;
+    set_name root1,root2;
+    scanf("%d %d\n", &u,&v);
+    root1 = find(S, u - 1);
+    root1 = find(S, v - 1);
+}
+
+void check_connection(set_type S) {
+}
+
+void check_network(set_type S, int n) {
+}
+
+int main() {
+    set_type S;
+    int n;
+    char input_char;
+    scanf("%d\n", &n);
+    do {
+        scanf("%c", &input_char);
+        switch (input_char) {
+        case 'I':
+            input_connection(S);
+            break;
+        case 'C':
+            check_connection(S);
+            break;
+        case 'S':
+            check_network(S, n);
+            break;
+        }
+    } while (input_char != 'S');
+    return 0;
+}
