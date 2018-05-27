@@ -75,6 +75,66 @@ Yes
 No
 No
 
+这道题的意思是给出一组字符和出现的频率，让我们构造他们的哈夫曼编码。
+由于哈夫曼编码不唯一，所以编码方式有多种。然后有M个同学给出了他们的编码方式，
+让我们判断他们的编码是否正确。正确输出Yes，错误输出No
+
+问题可以分成两部分:
+1.构造N个字符的哈夫曼编码，计算带权路径长度WPL，判断每个同学的编码带权路径长度是否
+等于之前计算出来的WPL.
+2.判断是否有某一个字符的编码是另一个字符的前缀码。
+
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+#define MAX_N 64
+#define YES   1
+#define NO    0
+#define MIN_DATA -1
+#define QUEUE_SIZE 100
+
+struct tree_node {
+    int weight;
+    struct tree_node* left, right;
+};
+typedef struct tree_node *tree_node_t;
+
+//构建最小堆
+struct heap_struct {
+    tree_node_t data;
+    int size;
+    int capacity;
+};
+typedef struct heap_struct *min_heap_t;
+
+struct queue_node {
+    tree_node_t data[QUEUE_SIZE];
+    int rear;
+    int front;
+};
+typedef struct queue_node *queue_node_t;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
