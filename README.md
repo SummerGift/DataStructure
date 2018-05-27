@@ -63,6 +63,7 @@ ___
 - 04-7 [Binarysearch tree operation set (C)](./eclipse/DataStructuresCode/src/04_7_Binarysearch_tree_operation_set.cpp)
 - 05-7 [Heap Path (C)](./eclipse/DataStructuresCode/src/05_7_heap_path.cpp)
 - 05-8 [File Transfer (C)](./eclipse/DataStructuresCode/src/05_8_File_Transfer.cpp)
+- 05-9 [Huffman Codes (C)](./eclipse/DataStructuresCode/src/05_9_Huffman_Codes.cpp)
 
 ## Note style
 
