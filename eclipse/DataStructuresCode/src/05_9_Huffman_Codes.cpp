@@ -118,8 +118,16 @@ struct queue_node {
 };
 typedef struct queue_node *queue_node_t;
 
-
-
+//创建最小堆
+tree_node_t create_min_heap(int max_size)
+{
+    min_heap_t h = (min_heap_t)malloc(sizeof(struct heap_struct));
+    h->data = malloc(sizeof(struct tree_node)*(max_size + 1));
+    h->size = 0;
+    h->capacity = max_size;
+    h->data[0].weight = MIN_DATA;
+    return h;
+}
 
 
 
