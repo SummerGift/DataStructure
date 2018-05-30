@@ -51,6 +51,7 @@ int compare(const void *a, const void *b) {
     return *(int *) a - *(int *) b;
 }
 
+//递归实现查找根节点，并且将根节点依次存放到 tree_array 数组中
 void mid_tree(int root, int N, int a[]) {
     if (root <= N) {
         mid_tree(2 * root, N, a);
