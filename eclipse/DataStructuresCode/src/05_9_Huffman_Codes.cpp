@@ -97,11 +97,11 @@ No
 #define MIN_DATA -1
 #define QUEUE_SIZE 100
 
+typedef struct tree_node *tree_node_t;
 struct tree_node {
     int weight;
-    struct tree_node* left, right;
+    tree_node_t left, right;
 };
-typedef struct tree_node *tree_node_t;
 
 //构建最小堆
 struct heap_struct {
@@ -122,16 +122,37 @@ typedef struct queue_node *queue_node_t;
 min_heap_t create_min_heap(int max_size)
 {
     min_heap_t h = (min_heap_t)malloc(sizeof(struct heap_struct));
-    h->data = malloc(sizeof(struct tree_node)*(max_size + 1));
+    h->data = (tree_node_t)malloc(sizeof(struct tree_node)*(max_size + 1));
     h->size = 0;
     h->capacity = max_size;
     h->data[0].weight = MIN_DATA;
     return h;
 }
 
+//先接收输入的需要编码的数据，然后按照最优编码方式进行编码，计算最优的WPL
+//分别接收学生们的编码，查看学生们的编码是否是最优编码，以及是否正确，如果正确返回Yes,错误返回No
+
+
 int main()
 {
+    int input_count, code_len, n, i;
 
+    min_heap_t min_heap;
+    char *ch;
+    int *cf;
+    tree_node_t huffman_tree;
+    scanf("%d\n",&input_count);
+    printf("the input_cont is %d",input_count);
+    //创建最小堆并将后面的数据读入最小堆
+
+    //将最小堆输入进来并创建哈夫曼树
+
+    //计算 WPL
+
+    //判断 n 组数据是否为最优编码并符合条件。
+
+
+    return 0;
 }
 
 
