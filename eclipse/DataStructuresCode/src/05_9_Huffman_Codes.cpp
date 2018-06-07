@@ -143,7 +143,12 @@ int main()
     tree_node_t huffman_tree;
     scanf("%d\n",&input_count);
     printf("the input_cont is %d",input_count);
+
     //创建最小堆并将后面的数据读入最小堆
+    min_heap = create_min_heap(input_count);
+    ch = (char *)malloc(sizeof(char) * input_count);
+    cf = (char *)malloc(sizeof(int) * input_count);
+
 
     //将最小堆输入进来并创建哈夫曼树
 
