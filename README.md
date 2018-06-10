@@ -23,7 +23,7 @@ ___
 - [x] [Lecture 2.2 - 表 ADT](./Lectures/Lecture-2.2-表ADT.md)
 - [x] [Lecture 2.3 - 堆栈 ADT](./Lectures/Lecture-2.3-堆栈ADT.md)
 - [ ] [Lecture 2.4 - 队列 ADT](./Lectures/Lecture-2.4-队列ADT.md)
-- [ ] [Lecture 2.5 - 通用链表的实现](./Lectures/Lecture-2.5-通用链表的实现.md)
+- [x] [Lecture 2.5 - 通用链表的实现](./Lectures/Lecture-2.5-通用链表的实现.md)
 #### 第三章：树
 - [x] [Lecture 3.1 - 树的预备知识](./Lectures/Lecture-3.1-树的预备知识.md)
 - [x] [Lecture 3.2 - 二叉树](./Lectures/Lecture-3.2-二叉树.md)
