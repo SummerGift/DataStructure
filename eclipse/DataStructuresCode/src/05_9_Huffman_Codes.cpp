@@ -132,30 +132,41 @@ min_heap_t create_min_heap(int max_size)
 //先接收输入的需要编码的数据，然后按照最优编码方式进行编码，计算最优的WPL
 //分别接收学生们的编码，查看学生们的编码是否是最优编码，以及是否正确，如果正确返回Yes,错误返回No
 
+min_heap_t get_data_to_heap(int number, char *ch, int *cf, min_heap_t H);
+tree_node_t build_huffman_tree(min_heap_t H);
+int count_wpl(tree_node_t H, int depth);
+int judge_tree(int input_count, int codelen, char *ch, int *cf);
 
-int main()
-{
-    int input_count, code_len, n, i;
+int main() {
+    int input_count, code_len, n;
 
     min_heap_t min_heap;
     char *ch;
     int *cf;
     tree_node_t huffman_tree;
-    scanf("%d\n",&input_count);
-    printf("the input_cont is %d",input_count);
+    scanf("%d\n", &input_count);
+    printf("the input_cont is %d", input_count);
 
     //创建最小堆并将后面的数据读入最小堆
     min_heap = create_min_heap(input_count);
-    ch = (char *)malloc(sizeof(char) * input_count);
-    cf = (char *)malloc(sizeof(int) * input_count);
-
+    ch = (char *) malloc(sizeof(char) * input_count);
+    cf = (int *) malloc(sizeof(int) * input_count);
+    min_heap = get_data_to_heap(input_count, ch, cf, min_heap);
 
     //将最小堆输入进来并创建哈夫曼树
+    huffman_tree = build_huffman_tree(min_heap);
 
     //计算 WPL
+    code_len = count_wpl(huffman_tree, 0);
 
     //判断 n 组数据是否为最优编码并符合条件。
-
+    scanf("%d\n", &n);
+    for (int i = 0; i < n; i++) {
+        if (judge_tree(input_count, code_len, ch, cf))
+            printf("Yes\n");
+        else
+            printf("No\n");
+    }
 
     return 0;
 }
