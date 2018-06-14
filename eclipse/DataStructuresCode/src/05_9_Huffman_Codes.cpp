@@ -159,7 +159,7 @@ int main() {
     //计算 WPL
     code_len = count_wpl(huffman_tree, 0);
 
-    //判断 n 组数据是否为最优编码并符合条件。
+    //判断 n 组数据是否为最优编码并符合条件。符合的打印yes, 不符合打印 no。
     scanf("%d\n", &n);
     for (int i = 0; i < n; i++) {
         if (judge_tree(input_count, code_len, ch, cf))
