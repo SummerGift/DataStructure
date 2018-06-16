@@ -34,6 +34,7 @@ ___
 - [x] [Lecture 4.2 - 哈夫曼树与哈夫曼编码](./Lectures/Lecture-4.2-哈夫曼树与哈夫曼编码.md)
 - [ ] [Lecture 4.3 - 不相交集 ADT](./Lectures/Lecture-4.3-不相交集ADT.md)
 #### 第五章：图论算法
+- [x] [Lecture 5.1 - 图](./Lectures/Lecture-4.1-堆.md)
 #### 第六章：排序
 
 ### 2. 数据结构与算法分析练习题
