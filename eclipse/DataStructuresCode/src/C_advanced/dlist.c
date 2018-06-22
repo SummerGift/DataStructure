@@ -37,7 +37,7 @@ typedef struct _DListNode
 	struct _DListNode* next;
 
 	void* data;                     //通用链表在存储数据的时候只保存数据的指针，这样不用复制数据效率高
-}                                                                                                                                ;
+}DListNode;
 
 struct _DList
 {
@@ -245,7 +245,7 @@ void dlist_destroy(DList* thiz)
 
 	return;
 }
-/*
+
 #include <stdio.h>
 #include <assert.h>
 #include "dlist.h"
@@ -277,4 +277,4 @@ int main(int argc, char* argv[])
     dlist_destroy(dlist);
 
     return 0;
-}*/
+}
