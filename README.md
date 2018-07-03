@@ -20,7 +20,7 @@ ___
 
 ### 1. 学习总结
 #### 第一章：基本概念
-- [ ] [Lecture 1.1 - 数据结构与算法](./Lectures/Lecture-1.1-数据结构与算法.md)
+- [x] [Lecture 1.1 - 数据结构与算法](./Lectures/Lecture-1.1-数据结构与算法.md)
 - [x] [Lecture 1.2 - 递归的思想与应用](./Lectures/Lecture-1.2-递归的思想与应用.md)
 #### 第二章：表、栈和队列
 - [x] [Lecture 2.1 - 抽象数据类型 ADT](./Lectures/Lecture-2.1-抽象数据类型ADT.md)
